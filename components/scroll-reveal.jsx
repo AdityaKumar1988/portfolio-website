@@ -1,0 +1,42 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
+export function ScrollReveal({ children, delay = 0 }) {
+  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        } else {
+          setIsVisible(false) // 👈 allows re-animation on scroll
+        }
+      },
+      {
+        threshold: 0.2,            // trigger when 20% visible
+        rootMargin: "0px 0px -80px 0px", // reveal slightly later
+      }
+    )
+
+    if (ref.current) observer.observe(ref.current)
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(70px)",
+        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </div>
+  )
+}
