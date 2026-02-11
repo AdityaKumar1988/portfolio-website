@@ -141,7 +141,7 @@ export function About() {
 
             <div style={{ marginTop: "3rem" }}>
               <a
-                href="https://drive.google.com/file/d/1Ay9O3vIO70uuscQoJjEnWX3MEyNOh8sQ/view"
+                href="https://drive.google.com/file/d/14smSSUkvloOVGJaQ1-svQlUbqy7J2MeX/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
