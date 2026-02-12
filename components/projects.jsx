@@ -9,17 +9,17 @@ const projects = [
     description:
       "A web-based CPU scheduling simulator that visualizes and analyzes Operating Systems scheduling algorithms with real-time Gantt chart visualization and automated computation.",
     tools: "Next.js, React, Tailwind CSS",
-    websiteUrl: "https://cpu-scheduler-aditya.vercel.app/", // Specific Link
-    githubUrl: "https://github.com/AdityaKumar1988",       // Specific Link
+    websiteUrl: "https://cpu-scheduler-aditya.vercel.app/",
+    githubUrl: "https://github.com/AdityaKumar1988",
     color: "#ffd900", // Yellow theme
   },
   {
-    title: "Food Donation Platform",
+    title: "AI Customer Support Intelligence Dashboard",
     description:
-      "A full-stack responsive web platform to connect food donors and receivers, promoting zero food waste. Features Geolocation API, animated Three.js backgrounds, and category-based workflows.",
-    tools: "Node.js, MongoDB, Three.js",
-    websiteUrl: null, // No website button for this one
-    githubUrl: "https://github.com/AdityaKumar1988",
+      "An AI-driven analytics dashboard deployed on Streamlit Cloud using Random Forest models. Features a dual ML pipeline for real-time ticket resolution prediction and interactive risk assessment, cutting assessment time by 57%.",
+    tools: "Python, Scikit-learn, Pandas, Streamlit",
+    websiteUrl: "https://customer-stress-predictor-aditya-kumar-jha.streamlit.app/",
+    githubUrl: "https://github.com/AdityaKumar1988/customer-stress-predictor",
     color: "#00d4ff", // Blue theme
   },
 ]
@@ -31,12 +31,12 @@ function ProjectCard({ project }) {
     <div
       style={{
         position: "relative",
-        width: "350px", // Fixed width for consistency
-        height: "420px", // Fixed height
+        width: "350px",
+        height: "420px",
         borderRadius: "12px",
         overflow: "hidden",
         boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-        background: `linear-gradient(135deg, ${project.color}15, ${project.color}30)`, // Light gradient bg
+        background: `linear-gradient(135deg, ${project.color}15, ${project.color}30)`,
         cursor: "pointer",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         transform: hovered ? "translateY(-5px)" : "translateY(0)",
@@ -93,16 +93,15 @@ function ProjectCard({ project }) {
           width: "100%",
           height: "100%",
           background: "#fff",
-          padding: "2rem",
+          padding: "1.5rem", // REDUCED PADDING
           display: "flex",
           flexDirection: "column",
-          // Slide up animation logic
           transform: hovered ? "translateY(0)" : "translateY(100%)", 
           transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
           zIndex: 10,
         }}
       >
-        {/* Colored Header Stripe inside overlay */}
+        {/* Colored Header Stripe */}
         <div
             style={{
                 position: "absolute",
@@ -114,26 +113,34 @@ function ProjectCard({ project }) {
             }}
         />
 
-        <h3 style={{ fontSize: "1.4rem", fontWeight: "800", color: "#222", marginBottom: "1rem", marginTop: "0.5rem" }}>
+        <h3 style={{ 
+            fontSize: "1.3rem", // Slightly smaller
+            fontWeight: "800", 
+            color: "#222", 
+            marginBottom: "0.5rem", 
+            marginTop: "0.5rem" 
+        }}>
           {project.title}
         </h3>
 
-        <p style={{ fontSize: "0.95rem", color: "#555", lineHeight: "1.6", marginBottom: "1rem", flex: 1 }}>
-          {project.description}
-        </p>
+        {/* Scrollable Description Area */}
+        <div style={{ flex: 1, overflowY: "auto", marginBottom: "1rem", paddingRight: "5px" }}>
+            <p style={{ fontSize: "0.9rem", color: "#555", lineHeight: "1.5" }}>
+            {project.description}
+            </p>
+        </div>
 
-        <div style={{ marginBottom: "1.5rem" }}>
-            <span style={{ fontSize: "0.85rem", fontWeight: "700", color: "#888", textTransform: "uppercase" }}>
+        <div style={{ marginBottom: "1rem", flexShrink: 0 }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#888", textTransform: "uppercase" }}>
                 Tech Stack
             </span>
-            <p style={{ fontSize: "0.95rem", color: "#333", fontWeight: "600", marginTop: "0.2rem" }}>
+            <p style={{ fontSize: "0.9rem", color: "#333", fontWeight: "600", marginTop: "0.2rem" }}>
                 {project.tools}
             </p>
         </div>
 
-        {/* BUTTONS CONTAINER */}
-        <div style={{ display: "flex", gap: "1rem" }}>
-          {/* Website Button (Only for Scheduler) */}
+        {/* BUTTONS CONTAINER - Always Visible */}
+        <div style={{ display: "flex", gap: "0.8rem", flexShrink: 0 }}>
           {project.websiteUrl && (
             <a
               href={project.websiteUrl}
@@ -141,39 +148,38 @@ function ProjectCard({ project }) {
               rel="noopener noreferrer"
               style={{
                 flex: 1,
-                padding: "0.8rem",
+                padding: "0.7rem",
                 borderRadius: "6px",
                 background: "#000",
                 color: "#fff",
                 textDecoration: "none",
                 fontWeight: "700",
-                fontSize: "0.9rem",
+                fontSize: "0.85rem",
                 textAlign: "center",
                 transition: "background 0.3s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.background = project.color)}
               onMouseLeave={(e) => (e.currentTarget.style.background = "#000")}
             >
-              <i className="fas fa-external-link-alt" style={{ marginRight: "8px" }}/>
+              <i className="fas fa-external-link-alt" style={{ marginRight: "6px" }}/>
               Website
             </a>
           )}
 
-          {/* Code Button (For Both) */}
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             style={{
               flex: 1,
-              padding: "0.8rem",
+              padding: "0.7rem",
               borderRadius: "6px",
               background: "#fff",
               color: "#000",
               border: "2px solid #000",
               textDecoration: "none",
               fontWeight: "700",
-              fontSize: "0.9rem",
+              fontSize: "0.85rem",
               textAlign: "center",
               transition: "all 0.3s",
             }}
@@ -186,7 +192,7 @@ function ProjectCard({ project }) {
                 e.currentTarget.style.color = "#000"
             }}
           >
-            <i className="fab fa-github" style={{ marginRight: "8px" }}/>
+            <i className="fab fa-github" style={{ marginRight: "6px" }}/>
             Code
           </a>
         </div>
@@ -225,7 +231,7 @@ export function Projects() {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center", // FIXED: Centers the cards
+          justifyContent: "center",
           gap: "2.5rem",
           maxWidth: "1200px",
           margin: "0 auto",
