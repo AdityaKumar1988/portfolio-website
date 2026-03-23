@@ -11,16 +11,34 @@ const projects = [
     tools: "Next.js, React, Tailwind CSS",
     websiteUrl: "https://cpu-scheduler-aditya.vercel.app/",
     githubUrl: "https://github.com/AdityaKumar1988",
-    color: "#ffd900", // Yellow theme
+    color: "#ffd900", // Yellow
   },
   {
-    title: "AI Customer Support Intelligence Dashboard",
+    title: "AI Customer Support Dashboard",
     description:
-      "An AI-driven analytics dashboard deployed on Streamlit Cloud using Random Forest models. Features a dual ML pipeline for real-time ticket resolution prediction and interactive risk assessment, cutting assessment time by 57%.",
+      "An AI-driven analytics dashboard deployed on Streamlit Cloud using Random Forest models. Features a dual ML pipeline for real-time ticket resolution prediction and interactive risk assessment.",
     tools: "Python, Scikit-learn, Pandas, Streamlit",
     websiteUrl: "https://customer-stress-predictor-aditya-kumar-jha.streamlit.app/",
     githubUrl: "https://github.com/AdityaKumar1988/customer-stress-predictor",
-    color: "#00d4ff", // Blue theme
+    color: "#00d4ff", // Blue
+  },
+  {
+    title: "Build-Nexus AI",
+    description:
+      "An AI-driven construction platform that generates optimized designs using Genetic Algorithms, predicts delays/costs with ML, and integrates IoT data for intelligent project execution and smart alerts.",
+    tools: "React, Node.js, ML Models, IoT Integration",
+    websiteUrl: "https://buildnexus-ai-adi.onrender.com",
+    githubUrl: "https://github.com/AdityaKumar1988/BuildNexus-AI",
+    color: "#ff4d4d", // Red/Coral
+  },
+  {
+    title: "Dynamic Cab Fare Calculator",
+    description:
+      "A full-stack ML project predicting and comparing ride fares across Ola, Uber, Rapido, and inDrive. Estimates prices dynamically based on traffic, time of day, and weather data.",
+    tools: "Python, Flask, React, Machine Learning",
+    websiteUrl: "https://dynamic-fare.vercel.app/",
+    githubUrl: "https://github.com/AdityaKumar1988",
+    color: "#a855f7", // Purple
   },
 ]
 
@@ -31,15 +49,15 @@ function ProjectCard({ project }) {
     <div
       style={{
         position: "relative",
-        width: "350px",
-        height: "420px",
+        width: "320px", // Adjusted for better 4-column/grid fit
+        height: "440px", // Slightly taller for longer descriptions
         borderRadius: "12px",
         overflow: "hidden",
         boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
         background: `linear-gradient(135deg, ${project.color}15, ${project.color}30)`,
         cursor: "pointer",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
-        transform: hovered ? "translateY(-5px)" : "translateY(0)",
+        transform: hovered ? "translateY(-8px)" : "translateY(0)",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -75,11 +93,11 @@ function ProjectCard({ project }) {
           />
         </div>
         
-        <h3 style={{ fontSize: "1.6rem", fontWeight: "800", color: "#333" }}>
+        <h3 style={{ fontSize: "1.5rem", fontWeight: "800", color: "#333", lineHeight: "1.2" }}>
           {project.title}
         </h3>
         
-        <p style={{ fontSize: "0.9rem", color: "#666", fontWeight: "600" }}>
+        <p style={{ fontSize: "0.85rem", color: "#666", fontWeight: "600" }}>
           Hover to view details
         </p>
       </div>
@@ -93,7 +111,7 @@ function ProjectCard({ project }) {
           width: "100%",
           height: "100%",
           background: "#fff",
-          padding: "1.5rem", // REDUCED PADDING
+          padding: "1.5rem",
           display: "flex",
           flexDirection: "column",
           transform: hovered ? "translateY(0)" : "translateY(100%)", 
@@ -101,7 +119,6 @@ function ProjectCard({ project }) {
           zIndex: 10,
         }}
       >
-        {/* Colored Header Stripe */}
         <div
             style={{
                 position: "absolute",
@@ -114,7 +131,7 @@ function ProjectCard({ project }) {
         />
 
         <h3 style={{ 
-            fontSize: "1.3rem", // Slightly smaller
+            fontSize: "1.2rem", 
             fontWeight: "800", 
             color: "#222", 
             marginBottom: "0.5rem", 
@@ -123,24 +140,22 @@ function ProjectCard({ project }) {
           {project.title}
         </h3>
 
-        {/* Scrollable Description Area */}
         <div style={{ flex: 1, overflowY: "auto", marginBottom: "1rem", paddingRight: "5px" }}>
-            <p style={{ fontSize: "0.9rem", color: "#555", lineHeight: "1.5" }}>
+            <p style={{ fontSize: "0.85rem", color: "#555", lineHeight: "1.5" }}>
             {project.description}
             </p>
         </div>
 
         <div style={{ marginBottom: "1rem", flexShrink: 0 }}>
-            <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#888", textTransform: "uppercase" }}>
+            <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#888", textTransform: "uppercase" }}>
                 Tech Stack
             </span>
-            <p style={{ fontSize: "0.9rem", color: "#333", fontWeight: "600", marginTop: "0.2rem" }}>
+            <p style={{ fontSize: "0.85rem", color: "#333", fontWeight: "600", marginTop: "0.2rem" }}>
                 {project.tools}
             </p>
         </div>
 
-        {/* BUTTONS CONTAINER - Always Visible */}
-        <div style={{ display: "flex", gap: "0.8rem", flexShrink: 0 }}>
+        <div style={{ display: "flex", gap: "0.6rem", flexShrink: 0 }}>
           {project.websiteUrl && (
             <a
               href={project.websiteUrl}
@@ -148,20 +163,19 @@ function ProjectCard({ project }) {
               rel="noopener noreferrer"
               style={{
                 flex: 1,
-                padding: "0.7rem",
+                padding: "0.6rem",
                 borderRadius: "6px",
                 background: "#000",
                 color: "#fff",
                 textDecoration: "none",
                 fontWeight: "700",
-                fontSize: "0.85rem",
+                fontSize: "0.8rem",
                 textAlign: "center",
                 transition: "background 0.3s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.background = project.color)}
               onMouseLeave={(e) => (e.currentTarget.style.background = "#000")}
             >
-              <i className="fas fa-external-link-alt" style={{ marginRight: "6px" }}/>
               Website
             </a>
           )}
@@ -172,14 +186,14 @@ function ProjectCard({ project }) {
             rel="noopener noreferrer"
             style={{
               flex: 1,
-              padding: "0.7rem",
+              padding: "0.6rem",
               borderRadius: "6px",
               background: "#fff",
               color: "#000",
               border: "2px solid #000",
               textDecoration: "none",
               fontWeight: "700",
-              fontSize: "0.85rem",
+              fontSize: "0.8rem",
               textAlign: "center",
               transition: "all 0.3s",
             }}
@@ -192,7 +206,6 @@ function ProjectCard({ project }) {
                 e.currentTarget.style.color = "#000"
             }}
           >
-            <i className="fab fa-github" style={{ marginRight: "6px" }}/>
             Code
           </a>
         </div>
@@ -203,48 +216,21 @@ function ProjectCard({ project }) {
 
 export function Projects() {
   return (
-    <section
-      id="work"
-      style={{
-        background: "#f7f7f7",
-        padding: "4rem 2rem",
-        minHeight: "100vh",
-      }}
-    >
+    <section id="work" style={{ background: "#f7f7f7", padding: "4rem 1rem", minHeight: "100vh" }}>
       <ScrollReveal>
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            color: "rgb(32, 32, 32)",
-            fontWeight: 800,
-            textAlign: "center",
-            marginBottom: "3rem",
-            textTransform: "capitalize",
-          }}
-        >
+        <h2 style={{ fontSize: "2.5rem", color: "rgb(32, 32, 32)", fontWeight: 800, textAlign: "center", marginBottom: "3rem" }}>
           Projects <span style={{ color: "rgb(115, 3, 167)" }}>Made</span>
         </h2>
       </ScrollReveal>
 
-      {/* Projects Grid */}
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2.5rem",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "2rem", maxWidth: "1400px", margin: "0 auto" }}>
         {projects.map((project, index) => (
-          <ScrollReveal key={project.title} delay={index * 200}>
+          <ScrollReveal key={project.title} delay={index * 150}>
             <ProjectCard project={project} />
           </ScrollReveal>
         ))}
       </div>
 
-      {/* View All Button */}
       <ScrollReveal delay={400}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "4rem" }}>
           <a
@@ -261,18 +247,11 @@ export function Projects() {
               color: "#fff",
               textDecoration: "none",
               fontWeight: "700",
-              fontSize: "1rem",
               boxShadow: "0 10px 20px rgba(2, 1, 51, 0.2)",
-              transition: "transform 0.3s, box-shadow 0.3s",
+              transition: "transform 0.3s",
             }}
-            onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)"
-                e.currentTarget.style.boxShadow = "0 15px 25px rgba(2, 1, 51, 0.3)"
-            }}
-            onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)"
-                e.currentTarget.style.boxShadow = "0 10px 20px rgba(2, 1, 51, 0.2)"
-            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-3px)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
           >
             <span>View All Projects</span>
             <i className="fas fa-arrow-right" />
