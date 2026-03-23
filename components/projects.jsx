@@ -25,8 +25,8 @@ const projects = [
   {
     title: "Build-Nexus AI",
     description:
-      "An AI-driven construction platform that generates optimized designs using Genetic Algorithms, predicts delays/costs with ML, and integrates IoT data for intelligent project execution and smart alerts.",
-    tools: "React, Node.js, ML Models, IoT Integration",
+      "SmartBuild AI is an intelligent construction planning system that analyzes project inputs to generate optimized design options. It uses machine learning models and optimization techniques to estimate costs, evaluate risks, and support better project management.",
+    tools: "JavaScript, Node.js, ML Models, Render, Numpy,Pandas, DEAP, Python, Scikit-learn, UptimeRobot",
     websiteUrl: "https://buildnexus-ai-adi.onrender.com",
     githubUrl: "https://github.com/AdityaKumar1988/BuildNexus-AI",
     color: "#ff4d4d", // Red/Coral
@@ -35,7 +35,7 @@ const projects = [
     title: "Dynamic Cab Fare Calculator",
     description:
       "A full-stack ML project predicting and comparing ride fares across Ola, Uber, Rapido, and inDrive. Estimates prices dynamically based on traffic, time of day, and weather data.",
-    tools: "Python, Flask, React, Machine Learning",
+    tools: "Numpy, Pandas, FastApi, Hugging Face,Transformers, Scikit-learn, Python",
     websiteUrl: "https://dynamic-fare.vercel.app/",
     githubUrl: "https://github.com/AdityaKumar1988",
     color: "#a855f7", // Purple
