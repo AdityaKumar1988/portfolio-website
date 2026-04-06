@@ -5,9 +5,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===============================
-   RESET & BASE
-================================ */
+* {
+  cursor: none !important;
+}
+
+#cursor-arrow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(0px, 0px);
+  filter: drop-shadow(0 0 6px #6366f1) drop-shadow(0 0 14px #6366f1);
+  transition: filter 0.25s ease;
+}
+
+#cursor-arrow.hovered {
+  filter: drop-shadow(0 0 8px #00e5ff) drop-shadow(0 0 20px #00e5ff);
+}
 * {
   margin: 0;
   padding: 0;
@@ -23,34 +38,32 @@ html {
 }
 
 body {
-  background: #f7f7f7;
+  background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%) fixed !important;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
-/* Selection */
+section, footer, header, main, #home, #about, #projects, #skills, #education, #contact, #certifications {
+  background: transparent !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
 ::selection {
   background: #2b3dda;
   color: #fff;
 }
 
-/* Scrollbar */
 html::-webkit-scrollbar {
   width: 0.5rem;
 }
 html::-webkit-scrollbar-track {
-  background: rgb(235, 202, 245);
-}
+  background: #0d1b3e;  }
 html::-webkit-scrollbar-thumb {
-  background: #420177;
-}
+  background: #00e5ff;  }
 
-/* ===============================
-   GLOBAL LAYOUT SYSTEM (CRITICAL)
-================================ */
 
-/* Main page width control */
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -58,13 +71,11 @@ html::-webkit-scrollbar-thumb {
   padding-right: 1.25rem;
 }
 
-/* Unified section spacing */
 section {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
 }
 
-/* Reduce excess space on smaller screens */
 @media (max-width: 768px) {
   section {
     padding-top: 2.25rem;
@@ -72,9 +83,6 @@ section {
   }
 }
 
-/* ===============================
-   TYPOGRAPHY DENSITY
-================================ */
 
 h1 {
   line-height: 1.1;
@@ -88,17 +96,12 @@ p {
   max-width: 60ch;
 }
 
-/* ===============================
-   ANIMATIONS
-================================ */
 
-/* Typed cursor animation */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
-/* Floating particles */
 @keyframes float-particle {
   0%, 100% {
     transform: translateY(0) translateX(0);
@@ -118,7 +121,6 @@ p {
   }
 }
 
-/* Scroll reveal animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -134,9 +136,6 @@ p {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* ===============================
-   IMAGE EFFECTS
-================================ */
 
 .grayscale-hover {
   filter: grayscale(100%);
@@ -147,9 +146,6 @@ p {
   filter: grayscale(0%);
 }
 
-/* ===============================
-   CSS VARIABLES (TAILWIND)
-================================ */
 
 @layer base {
   :root {
@@ -176,16 +172,12 @@ p {
   }
 }
 
-/* Apply Tailwind border color globally */
 @layer base {
   * {
     @apply border-border;
   }
 }
 
-/* ===============================
-   SKILLS GRID RESPONSIVE
-================================ */
 
 @media (max-width: 900px) {
   .skills-grid {
@@ -203,7 +195,6 @@ p {
   padding-bottom: 0 !important;
 }
 
-/* About image responsive alignment */
 .about-img-wrapper {
   display: flex;
   justify-content: flex-start;

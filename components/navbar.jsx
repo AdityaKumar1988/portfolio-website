@@ -1,7 +1,7 @@
 "use client"
-
+ 
 import { useState, useEffect } from "react"
-
+ 
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -11,16 +11,16 @@ const navLinks = [
   { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ]
-
+ 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("#home")
-
+  const [menuOpen, setMenuOpen] = useState(false)
+ 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-
-      // Auto-detect active section based on scroll position
+      setScrolled(window.scrollY > 60)
+ 
       const sections = navLinks.map((l) => l.href.replace("#", ""))
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i])
@@ -33,11 +33,15 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
+ 
+  
+  useEffect(() => {
+    if (menuOpen) setMenuOpen(false)
+  }, [activeSection])
+ 
   return (
     <>
       <header
-        className="navbar-header"
         style={{
           position: "fixed",
           top: 0,
@@ -45,142 +49,312 @@ export function Navbar() {
           right: 0,
           zIndex: 1000,
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: "65px",
-          backgroundColor: "#fff",
-          boxShadow: scrolled
-            ? "0 2px 8px rgba(146, 161, 176, 0.4)"
-            : "0 1px 4px rgba(146, 161, 176, 0.3)",
-          transition: "all 0.3s ease",
+          justifyContent: "center",
+          padding: scrolled ? "10px 1rem" : "18px 1rem",
+          transition: "padding 0.4s ease",
+          pointerEvents: "none",
         }}
       >
-        {/* Logo */}
-        <a
-          href="#home"
+        <nav
           style={{
-            display: "inline-flex",
+            pointerEvents: "auto",
+            display: "flex",
             alignItems: "center",
-            gap: "4px",
-            fontSize: "1.35rem",
-            fontWeight: 800,
-            color: "#fc8c05",
-            textDecoration: "none",
-            transition: "color 0.2s",
-            flexShrink: 0,
-            marginRight: "1rem",
-            paddingLeft: "10px", // Safety padding for mobile
+            justifyContent: "space-between",
+            width: "100%",
+            maxWidth: "900px",
+            height: "52px",
+            padding: "0 8px 0 6px",
+            borderRadius: "999px",
+            background: scrolled
+              ? "rgba(10, 10, 26, 0.85)"
+              : "rgba(10, 10, 26, 0.55)",
+            border: "1px solid rgba(0, 229, 255, 0.15)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            boxShadow: scrolled
+              ? "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,255,0.08)"
+              : "0 4px 20px rgba(0,0,0,0.2)",
+            transition: "all 0.4s ease",
           }}
         >
-          <span
+          {}
+          <a
+            href="#home"
+            onClick={() => setActiveSection("#home")}
             style={{
-              display: "inline-flex",
+              textDecoration: "none",
+              display: "flex",
               alignItems: "center",
-              justifyContent: "center",
-              width: "28px",
-              height: "28px",
-              background: "#002057",
-              color: "#fc8c05",
-              borderRadius: "4px",
-              fontSize: "0.95rem",
-              fontWeight: 900,
-              lineHeight: 1,
+              gap: "8px",
+              flexShrink: 0,
+              marginLeft: "4px",
             }}
           >
-            A
-          </span>
-          <span className="logo-text">Aditya</span>
-        </a>
-
-        {/* Navigation - Always Visible */}
-        <nav className="main-nav">
+            {}
+            <div
+              style={{
+                position: "relative",
+                width: "36px",
+                height: "36px",
+                flexShrink: 0,
+              }}
+            >
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {}
+                <circle cx="18" cy="18" r="17" stroke="url(#logoGrad)" strokeWidth="1.5" fill="none" />
+                {}
+                <path d="M11 26 L18 10 L25 26" stroke="url(#logoGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <path d="M13.5 21 H22.5" stroke="url(#logoGrad)" strokeWidth="1.8" strokeLinecap="round"/>
+                <defs>
+                  <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#00e5ff"/>
+                    <stop offset="100%" stopColor="#6366f1"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+ 
+            {}
+            <div style={{ lineHeight: 1 }}>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  background: "linear-gradient(90deg, #00e5ff, #818cf8)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  textTransform: "uppercase",
+                  display: "block",
+                }}
+              >
+                Aditya
+              </span>
+              <span
+                style={{
+                  fontSize: "9px",
+                  letterSpacing: "0.25em",
+                  color: "rgba(255,255,255,0.35)",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginTop: "1px",
+                }}
+              >
+                Portfolio
+              </span>
+            </div>
+          </a>
+ 
+          {}
           <ul
+            className="desktop-nav"
             style={{
               listStyle: "none",
               display: "flex",
               alignItems: "center",
               margin: 0,
               padding: 0,
+              gap: "2px",
             }}
           >
-            {navLinks.map((link) => (
-              <li key={link.href} className="nav-item">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setActiveSection(link.href)}
+                    style={{
+                      display: "block",
+                      fontSize: "12.5px",
+                      fontWeight: isActive ? 600 : 400,
+                      color: isActive ? "#00e5ff" : "rgba(255,255,255,0.6)",
+                      textDecoration: "none",
+                      padding: "6px 12px",
+                      borderRadius: "999px",
+                      background: isActive ? "rgba(0, 229, 255, 0.1)" : "transparent",
+                      border: isActive ? "1px solid rgba(0,229,255,0.25)" : "1px solid transparent",
+                      transition: "all 0.2s ease",
+                      whiteSpace: "nowrap",
+                      letterSpacing: "0.02em",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.color = "rgba(255,255,255,0.9)"
+                        e.currentTarget.style.background = "rgba(255,255,255,0.06)"
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.color = "rgba(255,255,255,0.6)"
+                        e.currentTarget.style.background = "transparent"
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+ 
+          {}
+          <a
+            href="https://drive.google.com/file/d/14smSSUkvloOVGJaQ1-svQlUbqy7J2MeX/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-btn"
+            style={{
+              fontSize: "12px",
+              fontWeight: 600,
+              color: "#00e5ff",
+              textDecoration: "none",
+              padding: "7px 16px",
+              borderRadius: "999px",
+              border: "1px solid rgba(0,229,255,0.4)",
+              background: "rgba(0,229,255,0.07)",
+              letterSpacing: "0.05em",
+              flexShrink: 0,
+              transition: "all 0.2s ease",
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(0,229,255,0.18)"
+              e.currentTarget.style.boxShadow = "0 0 16px rgba(0,229,255,0.25)"
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(0,229,255,0.07)"
+              e.currentTarget.style.boxShadow = "none"
+            }}
+          >
+            Resume ↗
+          </a>
+ 
+          {}
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+            style={{
+              display: "none",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: "6px",
+              flexDirection: "column",
+              gap: "5px",
+              marginLeft: "8px",
+            }}
+          >
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                style={{
+                  display: "block",
+                  width: "20px",
+                  height: "1.5px",
+                  background: "#00e5ff",
+                  borderRadius: "2px",
+                  transition: "all 0.3s ease",
+                  transform:
+                    menuOpen
+                      ? i === 0
+                        ? "translateY(6.5px) rotate(45deg)"
+                        : i === 2
+                        ? "translateY(-6.5px) rotate(-45deg)"
+                        : "scaleX(0)"
+                      : "none",
+                  opacity: menuOpen && i === 1 ? 0 : 1,
+                }}
+              />
+            ))}
+          </button>
+        </nav>
+ 
+        {}
+        {menuOpen && (
+          <div
+            className="mobile-menu"
+            style={{
+              position: "absolute",
+              top: "calc(100% + 8px)",
+              left: "1rem",
+              right: "1rem",
+              background: "rgba(10, 10, 26, 0.95)",
+              border: "1px solid rgba(0,229,255,0.15)",
+              borderRadius: "16px",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              padding: "8px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2px",
+            }}
+          >
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href
+              return (
                 <a
+                  key={link.href}
                   href={link.href}
-                  onClick={() => setActiveSection(link.href)}
-                  className="nav-link"
+                  onClick={() => { setActiveSection(link.href); setMenuOpen(false) }}
                   style={{
-                    color: activeSection === link.href ? "#011aff" : "#0e2431",
-                    fontWeight: 600,
+                    fontSize: "14px",
+                    fontWeight: isActive ? 600 : 400,
+                    color: isActive ? "#00e5ff" : "rgba(255,255,255,0.7)",
                     textDecoration: "none",
-                    letterSpacing: "0.02rem",
-                    transition: "0.2s",
-                    borderBottom:
-                      activeSection === link.href
-                        ? "2px solid #011aff"
-                        : "2px solid transparent",
-                    paddingBottom: "4px",
-                    textTransform: "capitalize",
-                    whiteSpace: "nowrap",
+                    padding: "10px 16px",
+                    borderRadius: "10px",
+                    background: isActive ? "rgba(0,229,255,0.1)" : "transparent",
+                    transition: "all 0.15s ease",
+                    letterSpacing: "0.02em",
                   }}
                 >
                   {link.label}
                 </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+              )
+            })}
+            <a
+              href="https://drive.google.com/file/d/14smSSUkvloOVGJaQ1-svQlUbqy7J2MeX/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: "13px",
+                fontWeight: 600,
+                color: "#00e5ff",
+                textDecoration: "none",
+                padding: "10px 16px",
+                borderRadius: "10px",
+                border: "1px solid rgba(0,229,255,0.3)",
+                background: "rgba(0,229,255,0.07)",
+                marginTop: "4px",
+                textAlign: "center",
+              }}
+            >
+              Resume ↗
+            </a>
+          </div>
+        )}
       </header>
-
+ 
       <style jsx>{`
-        /* --- Responsive Styles --- */
-
-        /* Header Padding */
-        .navbar-header {
-          padding: 0 2%; /* Default tight padding */
+        .desktop-nav { display: flex !important; }
+        .resume-btn { display: block !important; }
+        .hamburger { display: none !important; }
+ 
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .resume-btn { display: none !important; }
+          .hamburger { display: flex !important; }
+          .mobile-menu { display: flex !important; }
         }
-
-        /* Nav Container: Allows horizontal scroll on mobile */
-        .main-nav {
-          display: flex;
-          overflow-x: auto; /* Enables scroll if items overflow */
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: none; /* Firefox: hide scrollbar */
-          margin-left: auto;
-          padding-right: 15px; /* Padding for end of scroll */
-        }
-        .main-nav::-webkit-scrollbar {
-          display: none; /* Chrome/Safari: hide scrollbar */
-        }
-
-        /* Mobile View (Default) */
-        .nav-item {
-          margin-left: 1rem;
-          flex-shrink: 0; /* Prevents items from squishing */
-        }
-        .nav-link {
-          font-size: 0.8rem !important; /* Smaller text for mobile */
-        }
-        .logo-text {
-          display: none; /* Hide name on small mobile to save space */
-        }
-
-        /* Desktop View (Screens wider than 768px) */
-        @media (min-width: 768px) {
-          .navbar-header {
-            padding: 0 10%;
-          }
-          .nav-item {
-            margin-left: 2.5rem;
-          }
-          .nav-link {
-            font-size: 0.98rem !important;
-          }
-          .logo-text {
-            display: inline;
-          }
-          .main-nav {
-            overflow-x: visible; /* No scrolling needed on desktop */
+ 
+        @media (max-width: 900px) and (min-width: 769px) {
+          .desktop-nav li a {
+            padding: 6px 8px !important;
+            font-size: 11.5px !important;
           }
         }
       `}</style>

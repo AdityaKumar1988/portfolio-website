@@ -26,13 +26,13 @@ const certifications = [
   },
   {
     id: 2,
-    organization: "Google Cloud | Simplilearn", // Updated Organization
-    role: "Introduction to Generative AI",      // Updated Role
-    period: "Feb 2026",                         // Updated Date
-    description: "Learned the fundamentals of Generative AI, including foundation models, prompts, use cases, and real-world applications of generative models.", // Updated Description
-    link: "https://drive.google.com/file/d/12jS0QfrhsiR1_CnQ0P4ofGV9gUxzZLvg/view?usp=sharing", // Updated URL
-    topics: ["Generative AI", "Prompt Engineering", "Foundation Models"], // Updated Topics
-    color: "#9f55ff", // Kept same color
+    organization: "Google Cloud | Simplilearn",
+    role: "Introduction to Generative AI",
+    period: "Feb 2026",
+    description: "Learned the fundamentals of Generative AI, including foundation models, prompts, use cases, and real-world applications of generative models.",
+    link: "https://drive.google.com/file/d/12jS0QfrhsiR1_CnQ0P4ofGV9gUxzZLvg/view?usp=sharing",
+    topics: ["Generative AI", "Prompt Engineering", "Foundation Models"],
+    color: "#9f55ff",
   },
 ]
 
@@ -42,13 +42,13 @@ export function Certifications() {
   const getCardStyle = (index) => {
     const offset = index - activeId
     const isActive = index === activeId
-    
-    const xOffset = isActive ? 0 : offset * 55 
-    const scale = isActive ? 1.1 : 0.9 
-    const rotateY = isActive ? 0 : offset * -15 
+
+    const xOffset = isActive ? 0 : offset * 55
+    const scale = isActive ? 1.1 : 0.9
+    const rotateY = isActive ? 0 : offset * -15
     const zIndex = isActive ? 10 : 10 - Math.abs(offset)
-    const opacity = isActive ? 1 : 0.85 
-    const blur = isActive ? "0px" : "0.5px" 
+    const opacity = isActive ? 1 : 0.85
+    const blur = isActive ? "0px" : "0.5px"
 
     return {
       transform: `perspective(1000px) translateX(${xOffset}%) scale(${scale}) rotateY(${rotateY}deg)`,
@@ -56,7 +56,7 @@ export function Certifications() {
       opacity: opacity,
       filter: `blur(${blur})`,
       position: "relative",
-      transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)", 
+      transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
       boxShadow: isActive ? `0 25px 50px -12px ${certifications[index].color}60` : "0 10px 30px -10px rgba(0,0,0,0.3)",
       cursor: "pointer",
     }
@@ -68,7 +68,7 @@ export function Certifications() {
       style={{
         minHeight: "80vh",
         padding: "4rem 2rem",
-        background: "#f7f7f7",
+        background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
@@ -79,17 +79,25 @@ export function Certifications() {
         <h2
           style={{
             fontSize: "2.5rem",
-            color: "rgb(32, 32, 32)",
+            color: "#e2e8f0",
             fontWeight: 800,
             textAlign: "center",
             marginBottom: "3rem",
           }}
         >
-          <span style={{ color: "rgb(115, 3, 167)" }}>Certifications</span>
+          <span
+            style={{
+              background: "linear-gradient(90deg, #00e5ff, #6366f1)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Certifications
+          </span>
         </h2>
       </ScrollReveal>
 
-      {/* 3D Carousel Container */}
+      {}
       <div
         style={{
           display: "flex",
@@ -109,29 +117,29 @@ export function Certifications() {
               ...getCardStyle(index),
               position: "absolute",
               width: "100%",
-              maxWidth: "400px", 
+              maxWidth: "400px",
               background: "white",
               borderRadius: "20px",
               overflow: "hidden",
               border: index === activeId ? `2px solid ${cert.color}` : "1px solid #ddd",
             }}
           >
-            {/* Colored Header Bar */}
+            {}
             <div style={{ height: "12px", background: cert.color }}></div>
 
             <div style={{ padding: "2.5rem 2rem" }}>
-              {/* Header */}
+              {}
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1.2rem" }}>
-                 <i className="fas fa-certificate" style={{ color: cert.color, fontSize: "1.8rem" }} />
-                 <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: "bold", color: "#555", textTransform: "uppercase", letterSpacing: "1px" }}>
-                   {cert.organization}
-                 </h3>
+                <i className="fas fa-certificate" style={{ color: cert.color, fontSize: "1.8rem" }} />
+                <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: "bold", color: "#555", textTransform: "uppercase", letterSpacing: "1px" }}>
+                  {cert.organization}
+                </h3>
               </div>
-              
+
               <h2 style={{ fontSize: "1.4rem", fontWeight: "800", marginBottom: "0.5rem", color: "#1a1a1a", lineHeight: "1.2" }}>
                 {cert.role}
               </h2>
-              
+
               <p style={{ fontSize: "0.95rem", color: "#777", marginBottom: "1.2rem", fontWeight: "500" }}>
                 {cert.period}
               </p>
@@ -140,7 +148,7 @@ export function Certifications() {
                 {cert.description}
               </p>
 
-              {/* Topics Pills */}
+              {}
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "2rem" }}>
                 {cert.topics.map((topic) => (
                   <span
@@ -159,7 +167,7 @@ export function Certifications() {
                 ))}
               </div>
 
-              {/* Button */}
+              {}
               <a
                 href={cert.link}
                 target="_blank"
@@ -185,8 +193,8 @@ export function Certifications() {
           </div>
         ))}
       </div>
-      
-      {/* Navigation Dots */}
+
+      {}
       <div style={{ display: "flex", gap: "12px", marginTop: "1rem" }}>
         {certifications.map((_, index) => (
           <button

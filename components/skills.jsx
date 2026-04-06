@@ -30,14 +30,14 @@ export function Skills() {
       style={{
         minHeight: "90vh",
         padding: "4rem 9%",
-        background: "#f7f7f7", 
+        background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
       }}
     >
       <ScrollReveal>
         <h2
           style={{
             fontSize: "2.5rem",
-            color: "rgb(32, 32, 32)",
+            color: "#e2e8f0",
             fontWeight: 800,
             textAlign: "center",
             textTransform: "capitalize",
@@ -45,20 +45,29 @@ export function Skills() {
           }}
         >
           Skills &{" "}
-          <span style={{ color: "rgb(115, 3, 167)" }}>Abilities</span>
+          <span
+            style={{
+              background: "linear-gradient(90deg, #00e5ff, #6366f1)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Abilities
+          </span>
         </h2>
       </ScrollReveal>
 
       <ScrollReveal delay={200}>
         <div
           style={{
-            background: "#fff",
+            background: "rgba(255, 255, 255, 0.03)",
             borderRadius: "1.5rem",
             padding: "2.5rem",
             width: "100%",
             maxWidth: "1100px",
             margin: "0 auto",
-            boxShadow: "0 5px 15px rgba(0,0,0,0.05)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            boxShadow: "0 5px 30px rgba(0,0,0,0.3)",
           }}
         >
           <div className="skills-grid">
@@ -69,8 +78,8 @@ export function Skills() {
                   style={{
                     padding: "1.5rem 1rem",
                     borderRadius: "1rem",
-                    background: "#fff",
-                    border: "1px solid #eef2f6",
+                    background: "rgba(255, 255, 255, 0.03)",
+                    border: "1px solid rgba(255, 255, 255, 0.07)",
                     transition: "all 0.3s ease",
                     cursor: "pointer",
                     textAlign: "center",
@@ -78,17 +87,18 @@ export function Skills() {
                     flexDirection: "column",
                     alignItems: "center",
                     gap: "1rem",
-                    boxShadow: "0 2px 5px rgba(0,0,0,0.03)",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-5px)"
-                    e.currentTarget.style.boxShadow = "0 10px 20px rgba(115, 3, 167, 0.2)"
-                    e.currentTarget.style.borderColor = "transparent"
+                    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 229, 255, 0.15)"
+                    e.currentTarget.style.borderColor = "rgba(0, 229, 255, 0.3)"
+                    e.currentTarget.style.background = "rgba(0, 229, 255, 0.05)"
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "translateY(0)"
-                    e.currentTarget.style.boxShadow = "0 2px 5px rgba(0,0,0,0.03)"
-                    e.currentTarget.style.borderColor = "#eef2f6"
+                    e.currentTarget.style.boxShadow = "none"
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.07)"
+                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)"
                   }}
                 >
                   <img
@@ -105,7 +115,7 @@ export function Skills() {
                       fontSize: "0.95rem",
                       fontWeight: 700,
                       fontFamily: "'Nunito', sans-serif",
-                      color: "#333",
+                      color: "#94a3b8",
                     }}
                   >
                     {skill.name}

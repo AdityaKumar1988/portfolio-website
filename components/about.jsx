@@ -32,116 +32,194 @@ export function About() {
   return (
     <section
       id="about"
-      style={{ minHeight: "100vh", padding: "2rem 9%", background: "#f7f7f7" }}
+      style={{
+        minHeight: "100vh",
+        padding: "5rem 9%",
+        background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
+      {}
+      <div
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: "-10%",
+          width: "400px",
+          height: "400px",
+          background: "radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)",
+          zIndex: 0,
+        }}
+      />
+
       <ScrollReveal>
         <h2
           style={{
-            fontSize: "2.2rem",
-            color: "rgb(32, 32, 32)",
+            fontSize: "3rem",
+            color: "#e2e8f0",
             fontWeight: 800,
             textAlign: "center",
-            textTransform: "capitalize",
+            marginBottom: "1rem",
+            position: "relative",
+            zIndex: 1,
           }}
         >
-          About <span style={{ color: "rgb(115, 3, 167)" }}>Me</span>
+          About{" "}
+          <span
+            style={{
+              background: "linear-gradient(90deg, #00e5ff, #6366f1)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Me
+          </span>
         </h2>
       </ScrollReveal>
 
       <div
         style={{
           display: "flex",
-          gap: "2.5rem",
+          gap: "4rem",
           flexWrap: "wrap",
-          padding: "3.5rem 1rem",
+          padding: "2rem 0",
           alignItems: "center",
+          position: "relative",
+          zIndex: 1,
         }}
       >
-        {/* IMAGE */}
+        {}
         <ScrollReveal delay={200}>
           <div
             style={{
-              flex: "1 1 36rem",
+              flex: "1 1 30rem",
               display: "flex",
               justifyContent: isMobile ? "center" : "flex-start",
+              alignItems: "center",
               perspective: "1000px",
             }}
           >
-            <img
+            <div
               ref={imgRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              src="/images/adi.jpeg"
-              alt="Aditya Kumar Jha"
-              className="grayscale-hover"
               style={{
+                position: "relative",
                 width: isMobile ? "82%" : "28rem",
-                borderRadius: "1rem",
-                boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
                 cursor: "pointer",
-                transition:
-                  "transform 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67)",
                 transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+                transition: "transform 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67)",
                 willChange: "transform",
                 transformStyle: "preserve-3d",
+                borderRadius: "1rem",
               }}
-            />
+            >
+              {}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: "-8px",
+                  background: "linear-gradient(45deg, #00e5ff, #6366f1)",
+                  borderRadius: "1rem",
+                  filter: "blur(20px)",
+                  opacity: 0.35,
+                  zIndex: 0,
+                }}
+              />
+
+              {}
+              <img
+                src="/images/adi.jpeg"
+                alt="Aditya Kumar Jha"
+                className="grayscale-hover"
+                style={{
+                  width: "100%",
+                  borderRadius: "1rem",
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.5)",
+                  display: "block",
+                  position: "relative",
+                  zIndex: 1,
+                  border: "2px solid rgba(0, 229, 255, 0.2)",
+                }}
+              />
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* CONTENT */}
+        {}
         <ScrollReveal delay={400}>
-          <div style={{ flex: "1 1 42rem", padding: "1rem" }}>
-            <h3
-              style={{ color: "#1b1b1b", fontSize: "1.8rem", fontWeight: 700 }}
-            >
-              {"I'm Aditya"}
+          <div
+            style={{
+              flex: "1 1 40rem",
+              padding: "2.5rem",
+              background: "rgba(255, 255, 255, 0.03)",
+              backdropFilter: "blur(10px)",
+              borderRadius: "2rem",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+              boxShadow: "0 15px 35px rgba(0,0,0,0.2)",
+            }}
+          >
+            <h3 style={{ color: "#f8fafc", fontSize: "2rem", fontWeight: 700 }}>
+              Hello, I'm <span style={{ color: "#00e5ff" }}>Aditya</span>
             </h3>
             <p
               style={{
-                fontSize: "1rem",
-                color: "#020133",
-                fontWeight: 600,
-                marginTop: "0.8rem",
+                fontSize: "1.2rem",
+                background: "linear-gradient(90deg, #6366f1, #00e5ff)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontWeight: 700,
+                marginTop: "0.5rem",
               }}
             >
-              AI ML Developer
+              AI & Machine Learning Developer
             </p>
             <p
               style={{
-                fontSize: "1rem",
-                marginTop: "1.3rem",
-                fontFamily: "'Nunito', sans-serif",
-                fontWeight: 600,
-                lineHeight: 1.9,
-                color: "#333",
+                fontSize: "1.05rem",
+                marginTop: "1.5rem",
+                lineHeight: 1.8,
+                color: "#94a3b8",
+                fontWeight: 400,
               }}
             >
-              I’m a Computer Science undergraduate at VIT Vellore, specializing in Artificial Intelligence and Machine Learning. I enjoy building AI-driven systems and data-driven solutions using machine learning techniques such as predictive modeling, feature engineering, and data analysis. Alongside AI, I develop scalable full-stack applications with the MERN stack, integrating intelligent models into real-world products. I’m passionate about solving complex problems through machine learning, intelligent algorithms, and modern web technologies, and I constantly explore new tools and ideas to improve my skills.
+              I'm a Computer Science undergraduate at{" "}
+              <span style={{ color: "#e2e8f0", fontWeight: 600 }}>VIT Vellore</span>,
+              specializing in Artificial Intelligence and Machine Learning. I enjoy
+              building AI-driven systems and data-driven solutions using machine
+              learning techniques such as predictive modeling and feature engineering.
+              <br />
+              <br />
+              Alongside AI, I develop scalable full-stack applications with the{" "}
+              <span style={{ color: "#e2e8f0", fontWeight: 600 }}>MERN stack</span>,
+              integrating intelligent models into real-world products. I'm passionate
+              about solving complex problems through intelligent algorithms and modern
+              web technologies.
             </p>
 
+            {}
             <div
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "1.8rem",
-                marginTop: "1.6rem",
-                fontFamily: "'Nunito', sans-serif",
-                fontWeight: 600,
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+                gap: "1.5rem",
+                marginTop: "2rem",
               }}
             >
-              <p style={{ fontSize: "1rem", color: "#333" }}>
-                <span style={{ color: "#011aff" }}>Email :</span>{" "}
-                adityakrjha1988@gmail.com
-              </p>
-              <p style={{ fontSize: "1rem", color: "#333" }}>
-                <span style={{ color: "#011aff" }}>Place :</span> Dhanbad,
-                Jharkhand, India
-              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <span style={{ color: "#00e5ff", fontWeight: 800 }}>Email:</span>
+                <span style={{ color: "#cbd5e1", fontSize: "0.9rem" }}>
+                  adityakrjha1988@gmail.com
+                </span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <span style={{ color: "#00e5ff", fontWeight: 800 }}>Place:</span>
+                <span style={{ color: "#cbd5e1" }}>Dhanbad, Jharkhand, India</span>
+              </div>
             </div>
 
-            {/* UPDATED RESUME BUTTON */}
-            {/* UPDATED RESUME BUTTON WITH COLOR OVER EFFECT */}
+            {}
             <div style={{ marginTop: "3rem" }}>
               <a
                 href="https://drive.google.com/file/d/14smSSUkvloOVGJaQ1-svQlUbqy7J2MeX/view"
@@ -150,38 +228,28 @@ export function About() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "0.6rem",
-                  padding: "1rem 2.2rem",
-                  borderRadius: "0.6rem",
-                  color: "#fff",
-                  background: "#2506ad", // Original Purple
-                  boxShadow: "0px 6px 14px rgba(37, 6, 173, 0.4)",
-                  fontFamily: "'Nunito', sans-serif",
-                  fontWeight: 600,
+                  gap: "0.8rem",
+                  padding: "1rem 2.5rem",
+                  borderRadius: "999px",
+                  color: "#0a0a1a",
+                  background: "linear-gradient(90deg, #6366f1, #00e5ff)",
+                  fontWeight: 700,
                   fontSize: "1.1rem",
                   textDecoration: "none",
-                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)", // Smooth easing
-                  position: "relative",
-                  overflow: "hidden",
+                  transition: "all 0.3s ease",
+                  boxShadow: "0 10px 20px rgba(99,102,241,0.3)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#011aff"; // Shifts to Electric Blue
-                  e.currentTarget.style.transform = "translateY(-3px)";
-                  e.currentTarget.style.boxShadow =
-                    "0px 10px 20px rgba(1, 26, 255, 0.5)";
+                  e.currentTarget.style.transform = "translateY(-5px)";
+                  e.currentTarget.style.boxShadow = "0 15px 30px rgba(0,229,255,0.4)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#2506ad"; // Back to Original Purple
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0px 6px 14px rgba(37, 6, 173, 0.4)";
+                  e.currentTarget.style.boxShadow = "0 10px 20px rgba(99,102,241,0.3)";
                 }}
               >
-                <i
-                  className="fas fa-file-download"
-                  style={{ fontSize: "1.1rem" }}
-                ></i>
-                <span>Resume</span>
+                <i className="fas fa-file-download"></i>
+                <span>Download CV</span>
               </a>
             </div>
           </div>

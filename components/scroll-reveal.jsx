@@ -12,12 +12,12 @@ export function ScrollReveal({ children, delay = 0 }) {
         if (entry.isIntersecting) {
           setIsVisible(true)
         } else {
-          setIsVisible(false) // 👈 allows re-animation on scroll
+          setIsVisible(false) 
         }
       },
       {
-        threshold: 0.2,            // trigger when 20% visible
-        rootMargin: "0px 0px -80px 0px", // reveal slightly later
+        threshold: 0.2,            
+        rootMargin: "0px 0px -80px 0px", 
       }
     )
 
