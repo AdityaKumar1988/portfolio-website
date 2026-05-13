@@ -282,6 +282,7 @@ export function Hero() {
       />
 
       <div
+        className="hero-content"
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
@@ -295,7 +296,7 @@ export function Hero() {
         }}
       >
         {}
-        <div style={{ flex: "1.2" }}>
+        <div className="hero-text" style={{ flex: "1.2" }}>
           <h1
             style={{
               fontSize: "clamp(2.5rem, 5vw, 3.6rem)",
@@ -304,6 +305,7 @@ export function Hero() {
               lineHeight: 1.1,
               whiteSpace: "nowrap", 
             }}
+            className="hero-heading"
           >
             Hi There,
             <br />
@@ -321,6 +323,7 @@ export function Hero() {
           </h1>
 
           <p
+            className="hero-subtitle"
             style={{
               fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
               fontWeight: 600,
@@ -369,7 +372,7 @@ export function Hero() {
             About Me
           </a>
 
-          <div style={{ display: "flex", gap: "1rem", marginTop: "10px" }}>
+          <div className="social-links" style={{ display: "flex", gap: "1rem", marginTop: "10px" }}>
             {socialLinks.map((link) => (
               <a
                 key={link.name}
@@ -408,7 +411,7 @@ export function Hero() {
         </div>
 
         {}
-        <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+        <div className="hero-image" style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
           <div
             style={{
               position: "relative",
@@ -444,7 +447,7 @@ export function Hero() {
         </div>
       </div>
 
-      <style>{`
+      <style jsx>{`
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
@@ -452,6 +455,34 @@ export function Hero() {
         @keyframes spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+          .hero-content {
+            flex-direction: column-reverse !important;
+            text-align: center;
+            padding-top: 6rem !important;
+            padding-bottom: 2rem !important;
+            gap: 1rem !important;
+          }
+          .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-subtitle {
+            justify-content: center;
+          }
+          .social-links {
+            justify-content: center;
+          }
+          .hero-image {
+            justify-content: center !important;
+            margin-bottom: 1rem;
+            margin-top: 5rem;
+          }
+          .hero-heading {
+            white-space: normal !important;
+          }
         }
       `}</style>
     </section>

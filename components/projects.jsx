@@ -46,11 +46,12 @@ function ProjectCard({ project }) {
   const [hovered, setHovered] = useState(false)
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "320px",
-        height: "440px",
+      <div
+        className="project-card"
+        style={{
+          position: "relative",
+          width: "320px",
+          height: "440px",
         borderRadius: "12px",
         overflow: "hidden",
         boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
@@ -303,6 +304,14 @@ export function Projects() {
           </a>
         </div>
       </ScrollReveal>
+      <style jsx>{`
+        @media (max-width: 480px) {
+          .project-card {
+            width: 100% !important;
+            max-width: 320px !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

@@ -32,6 +32,7 @@ export function About() {
   return (
     <section
       id="about"
+      className="about-section"
       style={{
         minHeight: "100vh",
         padding: "5rem 9%",
@@ -79,6 +80,7 @@ export function About() {
       </ScrollReveal>
 
       <div
+        className="about-content"
         style={{
           display: "flex",
           gap: "4rem",
@@ -92,6 +94,7 @@ export function About() {
         {}
         <ScrollReveal delay={200}>
           <div
+            className="about-image"
             style={{
               flex: "1 1 30rem",
               display: "flex",
@@ -150,6 +153,7 @@ export function About() {
         {}
         <ScrollReveal delay={400}>
           <div
+            className="about-text"
             style={{
               flex: "1 1 40rem",
               padding: "2.5rem",
@@ -255,6 +259,25 @@ export function About() {
           </div>
         </ScrollReveal>
       </div>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .about-content {
+            flex-direction: column !important;
+            gap: 2rem !important;
+          }
+          .about-image {
+            flex: 1 1 100% !important;
+            justify-content: center !important;
+          }
+          .about-text {
+            flex: 1 1 100% !important;
+            padding: 1.5rem !important;
+          }
+          .about-section {
+            padding: 4rem 5% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

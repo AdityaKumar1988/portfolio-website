@@ -1,4 +1,5 @@
 import "./globals.css"
+import { Toaster } from "sonner"
 
 export const metadata = {
   title: "Portfolio | Aditya Kumar Jha",
@@ -80,6 +81,7 @@ export default function RootLayout({ children }) {
 `}} />
 
         <div className="app-wrapper">{children}</div>
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   )

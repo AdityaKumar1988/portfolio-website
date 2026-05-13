@@ -27,6 +27,7 @@ export function Skills() {
   return (
     <section
       id="skills"
+      className="skills-section"
       style={{
         minHeight: "90vh",
         padding: "4rem 9%",
@@ -139,6 +140,9 @@ export function Skills() {
           }
         }
         @media (max-width: 768px) {
+          .skills-section {
+            padding: 4rem 5% !important;
+          }
           .skills-grid {
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
@@ -147,6 +151,9 @@ export function Skills() {
         @media (max-width: 480px) {
           .skills-grid {
             grid-template-columns: repeat(2, 1fr);
+          }
+          .skill-card {
+            padding: 1rem 0.5rem !important;
           }
         }
       `}</style>

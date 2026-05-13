@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ScrollReveal } from "./scroll-reveal"
 
 const certifications = [
@@ -38,13 +38,21 @@ const certifications = [
 
 export function Certifications() {
   const [activeId, setActiveId] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth <= 768)
+    checkScreen()
+    window.addEventListener("resize", checkScreen)
+    return () => window.removeEventListener("resize", checkScreen)
+  }, [])
 
   const getCardStyle = (index) => {
     const offset = index - activeId
     const isActive = index === activeId
 
-    const xOffset = isActive ? 0 : offset * 55
-    const scale = isActive ? 1.1 : 0.9
+    const xOffset = isActive ? 0 : offset * (isMobile ? 25 : 55)
+    const scale = isActive ? (isMobile ? 1.0 : 1.1) : (isMobile ? 0.95 : 0.9)
     const rotateY = isActive ? 0 : offset * -15
     const zIndex = isActive ? 10 : 10 - Math.abs(offset)
     const opacity = isActive ? 1 : 0.85
@@ -117,7 +125,7 @@ export function Certifications() {
               ...getCardStyle(index),
               position: "absolute",
               width: "100%",
-              maxWidth: "400px",
+              maxWidth: isMobile ? "85%" : "400px",
               background: "white",
               borderRadius: "20px",
               overflow: "hidden",

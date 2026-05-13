@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ScrollReveal } from "./scroll-reveal"
+import { toast } from "sonner"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,15 +12,56 @@ export function Contact() {
     message: "",
   })
   const [isHovered, setIsHovered] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const mailtoLink = `mailto:adityakrjha1988@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\n${formData.message}`)}`
-    window.open(mailtoLink)
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all required fields.")
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address.")
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/adityakrjha1988@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          _subject: `New Portfolio Contact from ${formData.name}`,
+          _captcha: "false",
+        }),
+      })
+
+      if (response.ok) {
+        toast.success("Message sent successfully! I'll get back to you soon.")
+        setFormData({ name: "", email: "", phone: "", message: "" })
+      } else {
+        toast.error("Oops! Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      toast.error("Network error. Please check your connection and try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const inputStyle = {
@@ -87,6 +129,7 @@ export function Contact() {
       <ScrollReveal delay={200} style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         {}
         <div
+          className="contact-wrapper"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           style={{
@@ -142,6 +185,7 @@ export function Contact() {
 
           {}
           <div
+            className="contact-form-container"
             style={{
               flex: "6.5",
               padding: "1.5rem 2.5rem",
@@ -166,6 +210,9 @@ export function Contact() {
               >
                 Send a Message
               </h3>
+
+              {/* Spam protection honeypot */}
+              <input type="text" name="_honey" style={{ display: "none" }} />
 
               {}
               <div style={{ position: "relative" }}>
@@ -275,10 +322,11 @@ export function Contact() {
               <div style={{ marginTop: "0.2rem" }}>
                 <button
                   type="submit"
+                  disabled={isLoading}
                   style={{
                     color: "#0a0a1a",
                     fontSize: "0.9rem",
-                    cursor: "pointer",
+                    cursor: isLoading ? "not-allowed" : "pointer",
                     borderRadius: "50px",
                     padding: "8px 25px",
                     background: "linear-gradient(90deg, #00e5ff, #6366f1)",
@@ -292,18 +340,27 @@ export function Contact() {
                     gap: "0.5rem",
                     textTransform: "uppercase",
                     letterSpacing: "0.5px",
+                    opacity: isLoading ? 0.7 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-2px)"
-                    e.currentTarget.style.boxShadow = "0px 6px 20px rgba(0, 229, 255, 0.5)"
+                    if (!isLoading) {
+                      e.currentTarget.style.transform = "translateY(-2px)"
+                      e.currentTarget.style.boxShadow = "0px 6px 20px rgba(0, 229, 255, 0.5)"
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)"
-                    e.currentTarget.style.boxShadow = "0px 4px 15px rgba(0, 229, 255, 0.3)"
+                    if (!isLoading) {
+                      e.currentTarget.style.transform = "translateY(0)"
+                      e.currentTarget.style.boxShadow = "0px 4px 15px rgba(0, 229, 255, 0.3)"
+                    }
                   }}
                 >
-                  Submit
-                  <i className="fas fa-paper-plane" style={{ fontSize: "0.8rem" }} />
+                  {isLoading ? "Sending..." : "Submit"}
+                  {isLoading ? (
+                    <i className="fas fa-spinner fa-spin" style={{ fontSize: "0.8rem" }} />
+                  ) : (
+                    <i className="fas fa-paper-plane" style={{ fontSize: "0.8rem" }} />
+                  )}
                 </button>
               </div>
             </form>
@@ -317,8 +374,11 @@ export function Contact() {
           color: #4a5568;
         }
         @media (max-width: 768px) {
-          div[style*="flex-direction: row"] {
+          .contact-wrapper {
             flex-direction: column !important;
+          }
+          .contact-form-container {
+            padding: 1.5rem 1rem !important;
           }
         }
       `}</style>
