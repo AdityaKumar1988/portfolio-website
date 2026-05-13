@@ -75,7 +75,7 @@ export function Certifications() {
       id="certifications"
       style={{
         minHeight: "80vh",
-        padding: "4rem 2rem",
+        padding: isMobile ? "3rem 1rem" : "4rem 2rem",
         background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
         overflow: "hidden",
         display: "flex",
@@ -86,11 +86,11 @@ export function Certifications() {
       <ScrollReveal>
         <h2
           style={{
-            fontSize: "2.5rem",
+            fontSize: isMobile ? "2rem" : "2.5rem",
             color: "#e2e8f0",
             fontWeight: 800,
             textAlign: "center",
-            marginBottom: "3rem",
+            marginBottom: isMobile ? "2rem" : "3rem",
           }}
         >
           <span
@@ -113,7 +113,7 @@ export function Certifications() {
           alignItems: "center",
           width: "100%",
           maxWidth: "1200px",
-          height: "500px",
+          height: isMobile ? "650px" : "500px",
           position: "relative",
         }}
       >
@@ -125,7 +125,7 @@ export function Certifications() {
               ...getCardStyle(index),
               position: "absolute",
               width: "100%",
-              maxWidth: isMobile ? "85%" : "400px",
+              maxWidth: isMobile ? "90%" : "400px",
               background: "white",
               borderRadius: "20px",
               overflow: "hidden",
@@ -135,38 +135,38 @@ export function Certifications() {
             {}
             <div style={{ height: "12px", background: cert.color }}></div>
 
-            <div style={{ padding: "2.5rem 2rem" }}>
+            <div style={{ padding: isMobile ? "1.5rem" : "2.5rem 2rem" }}>
               {}
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1.2rem" }}>
-                <i className="fas fa-certificate" style={{ color: cert.color, fontSize: "1.8rem" }} />
-                <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: "bold", color: "#555", textTransform: "uppercase", letterSpacing: "1px" }}>
+                <i className="fas fa-certificate" style={{ color: cert.color, fontSize: isMobile ? "1.4rem" : "1.8rem" }} />
+                <h3 style={{ margin: 0, fontSize: isMobile ? "0.9rem" : "1.1rem", fontWeight: "bold", color: "#555", textTransform: "uppercase", letterSpacing: "1px" }}>
                   {cert.organization}
                 </h3>
               </div>
 
-              <h2 style={{ fontSize: "1.4rem", fontWeight: "800", marginBottom: "0.5rem", color: "#1a1a1a", lineHeight: "1.2" }}>
+              <h2 style={{ fontSize: isMobile ? "1.2rem" : "1.4rem", fontWeight: "800", marginBottom: "0.5rem", color: "#1a1a1a", lineHeight: "1.2" }}>
                 {cert.role}
               </h2>
 
-              <p style={{ fontSize: "0.95rem", color: "#777", marginBottom: "1.2rem", fontWeight: "500" }}>
+              <p style={{ fontSize: isMobile ? "0.85rem" : "0.95rem", color: "#777", marginBottom: "1.2rem", fontWeight: "500" }}>
                 {cert.period}
               </p>
 
-              <p style={{ fontSize: "1rem", lineHeight: "1.6", color: "#444", marginBottom: "1.8rem" }}>
+              <p style={{ fontSize: isMobile ? "0.9rem" : "1rem", lineHeight: "1.6", color: "#444", marginBottom: "1.8rem" }}>
                 {cert.description}
               </p>
 
               {}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "2rem" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: isMobile ? "1.5rem" : "2rem" }}>
                 {cert.topics.map((topic) => (
                   <span
                     key={topic}
                     style={{
                       background: `${cert.color}15`,
                       color: cert.color,
-                      padding: "6px 14px",
+                      padding: isMobile ? "4px 10px" : "6px 14px",
                       borderRadius: "20px",
-                      fontSize: "0.85rem",
+                      fontSize: isMobile ? "0.75rem" : "0.85rem",
                       fontWeight: "700",
                     }}
                   >
@@ -182,13 +182,13 @@ export function Certifications() {
                 rel="noopener noreferrer"
                 style={{
                   display: "inline-block",
-                  padding: "12px 24px",
+                  padding: isMobile ? "10px 20px" : "12px 24px",
                   background: index === activeId ? "#020133" : "#ccc",
                   color: "white",
                   borderRadius: "8px",
                   textDecoration: "none",
                   fontWeight: "bold",
-                  fontSize: "0.95rem",
+                  fontSize: isMobile ? "0.85rem" : "0.95rem",
                   transition: "all 0.3s",
                   opacity: index === activeId ? 1 : 0.5,
                   transform: index === activeId ? "translateY(0)" : "translateY(5px)",
