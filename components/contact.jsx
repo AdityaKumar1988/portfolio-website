@@ -94,7 +94,7 @@ export function Contact() {
       id="contact"
       style={{
         background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
-        padding: "3rem 5% 4rem",
+        padding: "3rem 5% 1.5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

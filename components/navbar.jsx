@@ -1,26 +1,27 @@
 "use client"
- 
+
 import { useState, useEffect } from "react"
- 
+
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
-  { label: "Work", href: "#work" },
   { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ]
- 
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("#home")
   const [menuOpen, setMenuOpen] = useState(false)
- 
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60)
- 
+
       const sections = navLinks.map((l) => l.href.replace("#", ""))
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i])
@@ -33,12 +34,12 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
- 
-  
+
+
   useEffect(() => {
     if (menuOpen) setMenuOpen(false)
   }, [activeSection])
- 
+
   return (
     <>
       <header
@@ -78,7 +79,7 @@ export function Navbar() {
             transition: "all 0.4s ease",
           }}
         >
-          {}
+          { }
           <a
             href="#home"
             onClick={() => setActiveSection("#home")}
@@ -91,7 +92,7 @@ export function Navbar() {
               marginLeft: "4px",
             }}
           >
-            {}
+            { }
             <div
               style={{
                 position: "relative",
@@ -101,21 +102,21 @@ export function Navbar() {
               }}
             >
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {}
+                { }
                 <circle cx="18" cy="18" r="17" stroke="url(#logoGrad)" strokeWidth="1.5" fill="none" />
-                {}
-                <path d="M11 26 L18 10 L25 26" stroke="url(#logoGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M13.5 21 H22.5" stroke="url(#logoGrad)" strokeWidth="1.8" strokeLinecap="round"/>
+                { }
+                <path d="M11 26 L18 10 L25 26" stroke="url(#logoGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path d="M13.5 21 H22.5" stroke="url(#logoGrad)" strokeWidth="1.8" strokeLinecap="round" />
                 <defs>
                   <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#00e5ff"/>
-                    <stop offset="100%" stopColor="#6366f1"/>
+                    <stop offset="0%" stopColor="#00e5ff" />
+                    <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
               </svg>
             </div>
- 
-            {}
+
+            { }
             <div style={{ lineHeight: 1 }}>
               <span
                 style={{
@@ -146,8 +147,8 @@ export function Navbar() {
               </span>
             </div>
           </a>
- 
-          {}
+
+          { }
           <ul
             className="desktop-nav"
             style={{
@@ -199,10 +200,10 @@ export function Navbar() {
               )
             })}
           </ul>
- 
-          {}
+
+          { }
           <a
-            href="https://drive.google.com/file/d/14smSSUkvloOVGJaQ1-svQlUbqy7J2MeX/view"
+            href="https://drive.google.com/file/d/1tJ3J6tg-sBxbisfrsU0zgPeVfMsyYYxi/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="resume-btn"
@@ -231,8 +232,8 @@ export function Navbar() {
           >
             Resume ↗
           </a>
- 
-          {}
+
+          { }
           <button
             className="hamburger"
             onClick={() => setMenuOpen((o) => !o)}
@@ -263,8 +264,8 @@ export function Navbar() {
                       ? i === 0
                         ? "translateY(6.5px) rotate(45deg)"
                         : i === 2
-                        ? "translateY(-6.5px) rotate(-45deg)"
-                        : "scaleX(0)"
+                          ? "translateY(-6.5px) rotate(-45deg)"
+                          : "scaleX(0)"
                       : "none",
                   opacity: menuOpen && i === 1 ? 0 : 1,
                 }}
@@ -272,8 +273,8 @@ export function Navbar() {
             ))}
           </button>
         </nav>
- 
-        {}
+
+        { }
         {menuOpen && (
           <div
             className="mobile-menu"
@@ -338,7 +339,7 @@ export function Navbar() {
           </div>
         )}
       </header>
- 
+
       <style jsx>{`
         .desktop-nav { display: flex !important; }
         .resume-btn { display: block !important; }

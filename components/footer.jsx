@@ -5,8 +5,9 @@ export function Footer() {
     <footer
       style={{
         background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
-        padding: "0.8rem 0",
+        padding: "1.5rem 0 2rem 0",
         width: "100%",
+        minHeight: "auto",
       }}
     >
       {}

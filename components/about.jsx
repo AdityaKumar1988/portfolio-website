@@ -34,14 +34,13 @@ export function About() {
       id="about"
       className="about-section"
       style={{
-        minHeight: "100vh",
-        padding: "5rem 9%",
+        padding: "3.5rem 9%",
         background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {}
+      { }
       <div
         style={{
           position: "absolute",
@@ -83,15 +82,15 @@ export function About() {
         className="about-content"
         style={{
           display: "flex",
-          gap: "4rem",
+          gap: "3rem",
           flexWrap: "wrap",
-          padding: "2rem 0",
+          padding: "1rem 0",
           alignItems: "center",
           position: "relative",
           zIndex: 1,
         }}
       >
-        {}
+        { }
         <ScrollReveal delay={200}>
           <div
             className="about-image"
@@ -118,7 +117,7 @@ export function About() {
                 borderRadius: "1rem",
               }}
             >
-              {}
+              { }
               <div
                 style={{
                   position: "absolute",
@@ -131,7 +130,7 @@ export function About() {
                 }}
               />
 
-              {}
+              { }
               <img
                 src="/images/adi.jpeg"
                 alt="Aditya Kumar Jha"
@@ -150,13 +149,13 @@ export function About() {
           </div>
         </ScrollReveal>
 
-        {}
+        { }
         <ScrollReveal delay={400}>
           <div
             className="about-text"
             style={{
               flex: "1 1 40rem",
-              padding: "2.5rem",
+              padding: "2rem",
               background: "rgba(255, 255, 255, 0.03)",
               backdropFilter: "blur(10px)",
               borderRadius: "2rem",
@@ -182,8 +181,8 @@ export function About() {
             <p
               style={{
                 fontSize: "1.05rem",
-                marginTop: "1.5rem",
-                lineHeight: 1.8,
+                marginTop: "1rem",
+                lineHeight: 1.6,
                 color: "#94a3b8",
                 fontWeight: 400,
               }}
@@ -202,13 +201,13 @@ export function About() {
               web technologies.
             </p>
 
-            {}
+            { }
             <div
               style={{
                 display: "grid",
                 gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
-                gap: "1.5rem",
-                marginTop: "2rem",
+                gap: "1.2rem",
+                marginTop: "1.5rem",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -223,10 +222,10 @@ export function About() {
               </div>
             </div>
 
-            {}
-            <div style={{ marginTop: "3rem" }}>
+            { }
+            <div style={{ marginTop: "2rem" }}>
               <a
-                href="https://drive.google.com/file/d/14smSSUkvloOVGJaQ1-svQlUbqy7J2MeX/view"
+                href="https://drive.google.com/file/d/1tJ3J6tg-sBxbisfrsU0zgPeVfMsyYYxi/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
