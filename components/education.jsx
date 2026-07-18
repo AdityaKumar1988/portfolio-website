@@ -31,7 +31,7 @@ const educationData = [
     subtitle: "Computer Science and Engineering (AI & ML)",
     institute: "Vellore Institute of Technology",
     period: "2023 - 2027",
-    grade: "CGPA: 8.96",
+    grade: "CGPA: 9.03",
     description: [
       "Pursuing B.Tech in Computer Science and Engineering with specialization in Artificial Intelligence & Machine Learning. Developing strong foundations in core CS subjects with hands-on exposure to real-world projects in machine learning and full stack development.",
     ],

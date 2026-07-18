@@ -5,22 +5,13 @@ import { ScrollReveal } from "./scroll-reveal"
 
 const projects = [
   {
-    title: "SchedulerSim",
+    title: "FareWise AI",
     description:
-      "A web-based CPU scheduling simulator that visualizes and analyzes Operating Systems scheduling algorithms with real-time Gantt chart visualization and automated computation.",
-    tools: "Next.js, React, Tailwind CSS",
-    websiteUrl: "https://cpu-scheduler-aditya.vercel.app/",
+      "A full-stack ML project predicting and comparing ride fares across Ola, Uber, Rapido, and inDrive. Estimates prices dynamically based on traffic, time of day, and weather data.",
+    tools: "Numpy, Pandas, FastApi, Hugging Face, Transformers, Scikit-learn, Python",
+    websiteUrl: "https://dynamic-fare.vercel.app/",
     githubUrl: "https://github.com/AdityaKumar1988",
-    color: "#ffd900",
-  },
-  {
-    title: "AI Customer Support Dashboard",
-    description:
-      "An AI-driven analytics dashboard deployed on Streamlit Cloud using Random Forest models. Features a dual ML pipeline for real-time ticket resolution prediction and interactive risk assessment.",
-    tools: "Python, Scikit-learn, Pandas, Streamlit",
-    websiteUrl: "https://customer-stress-predictor-aditya-kumar-jha.streamlit.app/",
-    githubUrl: "https://github.com/AdityaKumar1988/customer-stress-predictor",
-    color: "#00d4ff",
+    color: "#a855f7",
   },
   {
     title: "Build-Nexus AI",
@@ -31,15 +22,26 @@ const projects = [
     githubUrl: "https://github.com/AdityaKumar1988/BuildNexus-AI",
     color: "#ff4d4d",
   },
+  
   {
-    title: "Dynamic Cab Fare Calculator",
+    title: "AI Customer Support Dashboard",
     description:
-      "A full-stack ML project predicting and comparing ride fares across Ola, Uber, Rapido, and inDrive. Estimates prices dynamically based on traffic, time of day, and weather data.",
-    tools: "Numpy, Pandas, FastApi, Hugging Face, Transformers, Scikit-learn, Python",
-    websiteUrl: "https://dynamic-fare.vercel.app/",
-    githubUrl: "https://github.com/AdityaKumar1988",
-    color: "#a855f7",
+      "An AI-driven analytics dashboard deployed on Streamlit Cloud using Random Forest models. Features a dual ML pipeline for real-time ticket resolution prediction and interactive risk assessment.",
+    tools: "Python, Scikit-learn, Pandas, Streamlit",
+    websiteUrl: "https://customer-stress-predictor-aditya-kumar-jha.streamlit.app/",
+    githubUrl: "https://github.com/AdityaKumar1988/customer-stress-predictor",
+    color: "#00d4ff",
   },
+  {
+    title: "SchedulerSim",
+    description:
+      "A web-based CPU scheduling simulator that visualizes and analyzes Operating Systems scheduling algorithms with real-time Gantt chart visualization and automated computation.",
+    tools: "Next.js, React, Tailwind CSS",
+    websiteUrl: "https://cpu-scheduler-aditya.vercel.app/",
+    githubUrl: "https://github.com/AdityaKumar1988",
+    color: "#ffd900",
+  },
+  
 ]
 
 function ProjectCard({ project }) {
