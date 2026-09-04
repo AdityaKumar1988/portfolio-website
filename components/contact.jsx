@@ -70,7 +70,7 @@ export function Contact() {
     outline: "none",
     padding: "0 10px 0 38px",
     fontSize: "0.85rem",
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
     borderRadius: "6px",
     border: "1px solid rgba(255, 255, 255, 0.1)",
     background: "rgba(255, 255, 255, 0.05)",
@@ -127,7 +127,6 @@ export function Contact() {
       </ScrollReveal>
 
       <ScrollReveal delay={200} style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        {}
         <div
           className="contact-wrapper"
           onMouseEnter={() => setIsHovered(true)}
@@ -151,7 +150,6 @@ export function Contact() {
           }}
         >
 
-          {}
           <div
             className="hidden md:flex"
             style={{
@@ -183,7 +181,6 @@ export function Contact() {
             </p>
           </div>
 
-          {}
           <div
             className="contact-form-container"
             style={{
@@ -214,7 +211,6 @@ export function Contact() {
               {/* Spam protection honeypot */}
               <input type="text" name="_honey" style={{ display: "none" }} />
 
-              {}
               <div style={{ position: "relative" }}>
                 <i className="fas fa-user" style={iconStyle} />
                 <input
@@ -238,7 +234,6 @@ export function Contact() {
                 />
               </div>
 
-              {}
               <div style={{ position: "relative" }}>
                 <i className="fas fa-envelope" style={iconStyle} />
                 <input
@@ -262,7 +257,6 @@ export function Contact() {
                 />
               </div>
 
-              {}
               <div style={{ position: "relative" }}>
                 <i className="fas fa-phone" style={iconStyle} />
                 <input
@@ -285,7 +279,6 @@ export function Contact() {
                 />
               </div>
 
-              {}
               <div style={{ position: "relative" }}>
                 <i
                   className="fas fa-comment-dots"
@@ -318,7 +311,6 @@ export function Contact() {
                 />
               </div>
 
-              {}
               <div style={{ marginTop: "0.2rem" }}>
                 <button
                   type="submit"
@@ -332,7 +324,7 @@ export function Contact() {
                     background: "linear-gradient(90deg, #00e5ff, #6366f1)",
                     boxShadow: "0px 4px 15px rgba(0, 229, 255, 0.3)",
                     transition: "all 0.3s ease",
-                    fontFamily: "'Nunito', sans-serif",
+                    fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
                     fontWeight: 700,
                     border: "none",
                     display: "inline-flex",

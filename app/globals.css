@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -35,13 +34,18 @@
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
   background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%) fixed !important;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+button, input, textarea, select, a, p, h1, h2, h3, h4, h5, h6, span, label {
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
 }
 
 section, footer, header, main, #home, #about, #projects, #skills, #education, #contact, #certifications {
@@ -59,10 +63,11 @@ html::-webkit-scrollbar {
   width: 0.5rem;
 }
 html::-webkit-scrollbar-track {
-  background: #0d1b3e;  }
+  background: #0d1b3e;
+}
 html::-webkit-scrollbar-thumb {
-  background: #00e5ff;  }
-
+  background: #00e5ff;
+}
 
 .main-content {
   max-width: 1200px;
@@ -81,6 +86,16 @@ section {
     padding-top: 2.25rem;
     padding-bottom: 2.25rem;
   }
+}
+
+section[data-sonner-toaster],
+section[aria-label*="Notification"],
+[data-sonner-toaster] {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: visible !important;
 }
 
 

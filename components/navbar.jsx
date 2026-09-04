@@ -37,8 +37,25 @@ export function Navbar() {
 
 
   useEffect(() => {
-    if (menuOpen) setMenuOpen(false)
-  }, [activeSection])
+    if (!menuOpen) return
+    const handleClickOutside = (e) => {
+      if (!e.target.closest("header")) {
+        setMenuOpen(false)
+      }
+    }
+    document.addEventListener("click", handleClickOutside)
+    return () => document.removeEventListener("click", handleClickOutside)
+  }, [menuOpen])
+
+  const scrollToSection = (e, href) => {
+    e.preventDefault()
+    setActiveSection(href)
+    setMenuOpen(false)
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   return (
     <>
@@ -79,10 +96,9 @@ export function Navbar() {
             transition: "all 0.4s ease",
           }}
         >
-          { }
           <a
             href="#home"
-            onClick={() => setActiveSection("#home")}
+            onClick={(e) => scrollToSection(e, "#home")}
             style={{
               textDecoration: "none",
               display: "flex",
@@ -90,9 +106,9 @@ export function Navbar() {
               gap: "8px",
               flexShrink: 0,
               marginLeft: "4px",
+              cursor: "pointer",
             }}
           >
-            { }
             <div
               style={{
                 position: "relative",
@@ -102,9 +118,7 @@ export function Navbar() {
               }}
             >
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                { }
                 <circle cx="18" cy="18" r="17" stroke="url(#logoGrad)" strokeWidth="1.5" fill="none" />
-                { }
                 <path d="M11 26 L18 10 L25 26" stroke="url(#logoGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 <path d="M13.5 21 H22.5" stroke="url(#logoGrad)" strokeWidth="1.8" strokeLinecap="round" />
                 <defs>
@@ -116,7 +130,6 @@ export function Navbar() {
               </svg>
             </div>
 
-            { }
             <div style={{ lineHeight: 1 }}>
               <span
                 style={{
@@ -148,7 +161,6 @@ export function Navbar() {
             </div>
           </a>
 
-          { }
           <ul
             className="desktop-nav"
             style={{
@@ -166,7 +178,7 @@ export function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setActiveSection(link.href)}
+                    onClick={(e) => scrollToSection(e, link.href)}
                     style={{
                       display: "block",
                       fontSize: "12.5px",
@@ -180,6 +192,7 @@ export function Navbar() {
                       transition: "all 0.2s ease",
                       whiteSpace: "nowrap",
                       letterSpacing: "0.02em",
+                      cursor: "pointer",
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
@@ -201,7 +214,6 @@ export function Navbar() {
             })}
           </ul>
 
-          { }
           <a
             href="https://drive.google.com/file/d/1tJ3J6tg-sBxbisfrsU0zgPeVfMsyYYxi/view?usp=sharing"
             target="_blank"
@@ -233,7 +245,6 @@ export function Navbar() {
             Resume ↗
           </a>
 
-          { }
           <button
             className="hamburger"
             onClick={() => setMenuOpen((o) => !o)}
@@ -274,7 +285,6 @@ export function Navbar() {
           </button>
         </nav>
 
-        { }
         {menuOpen && (
           <div
             className="mobile-menu"
@@ -292,6 +302,8 @@ export function Navbar() {
               display: "flex",
               flexDirection: "column",
               gap: "2px",
+              pointerEvents: "auto",
+              zIndex: 1001,
             }}
           >
             {navLinks.map((link) => {
@@ -300,7 +312,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => { setActiveSection(link.href); setMenuOpen(false) }}
+                  onClick={(e) => scrollToSection(e, link.href)}
                   style={{
                     fontSize: "14px",
                     fontWeight: isActive ? 600 : 400,
@@ -311,6 +323,7 @@ export function Navbar() {
                     background: isActive ? "rgba(0,229,255,0.1)" : "transparent",
                     transition: "all 0.15s ease",
                     letterSpacing: "0.02em",
+                    cursor: "pointer",
                   }}
                 >
                   {link.label}

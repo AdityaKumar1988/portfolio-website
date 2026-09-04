@@ -1,5 +1,13 @@
+import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "sonner"
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+})
 
 export const metadata = {
   title: "Portfolio | Aditya Kumar Jha",
@@ -21,14 +29,14 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={spaceGrotesk.variable}>
       <head>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <body className={spaceGrotesk.className} style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
 
 
         <svg

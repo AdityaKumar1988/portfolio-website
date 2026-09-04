@@ -115,7 +115,7 @@ export function Skills() {
                     style={{
                       fontSize: "0.95rem",
                       fontWeight: 700,
-                      fontFamily: "'Nunito', sans-serif",
+                      fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
                       color: "#94a3b8",
                     }}
                   >

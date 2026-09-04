@@ -5,6 +5,15 @@ import { ScrollReveal } from "./scroll-reveal"
 
 const projects = [
   {
+    title: "ResQ",
+    description:
+      "A real-time emergency medical services dispatch and fleet coordination platform that connects citizens, dispatchers, drivers, and administrators. It supports emergency incident reporting, ambulance recommendation and assignment, real-time GPS/fleet updates, notifications, and role-based workflows.",
+    tools: "React, TypeScript, Node.js, Express.js, PostgreSQL, Knex.js, Socket.IO, JWT, Zod",
+    websiteUrl: "https://resq-sepia-five.vercel.app/",
+    githubUrl: "https://github.com/AdityaKumar1988/ResQ",
+    color: "#10b981",
+  },
+  {
     title: "FareWise AI",
     description:
       "A full-stack ML project predicting and comparing ride fares across Ola, Uber, Rapido, and inDrive. Estimates prices dynamically based on traffic, time of day, and weather data.",
@@ -22,7 +31,6 @@ const projects = [
     githubUrl: "https://github.com/AdityaKumar1988/BuildNexus-AI",
     color: "#ff4d4d",
   },
-  
   {
     title: "AI Customer Support Dashboard",
     description:
@@ -41,32 +49,38 @@ const projects = [
     githubUrl: "https://github.com/AdityaKumar1988",
     color: "#ffd900",
   },
-  
 ]
 
 function ProjectCard({ project }) {
   const [hovered, setHovered] = useState(false)
 
+  const handleCardClick = (e) => {
+    if (e.target.closest("a")) return
+    setHovered((prev) => !prev)
+  }
+
   return (
-      <div
-        className="project-card"
-        style={{
-          position: "relative",
-          width: "320px",
-          height: "440px",
-        borderRadius: "12px",
+    <div
+      className="project-card"
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "480px",
+        borderRadius: "14px",
         overflow: "hidden",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+        boxShadow: hovered
+          ? `0 20px 38px rgba(0,0,0,0.5), 0 0 25px ${project.color}25`
+          : "0 10px 30px rgba(0,0,0,0.4)",
         background: `linear-gradient(135deg, ${project.color}18, ${project.color}35)`,
-        border: `1px solid ${project.color}30`,
+        border: `1px solid ${project.color}35`,
         cursor: "pointer",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         transform: hovered ? "translateY(-8px)" : "translateY(0)",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={handleCardClick}
     >
-      {}
       <div
         style={{
           height: "100%",
@@ -74,7 +88,7 @@ function ProjectCard({ project }) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          padding: "2rem",
+          padding: "2rem 1.25rem",
           textAlign: "center",
           gap: "1.5rem",
         }}
@@ -88,26 +102,42 @@ function ProjectCard({ project }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: `0 4px 15px ${project.color}40`,
-            border: `1px solid ${project.color}50`,
+            boxShadow: `0 4px 20px ${project.color}45`,
+            border: `1px solid ${project.color}60`,
+            flexShrink: 0,
           }}
         >
           <i
             className="fas fa-laptop-code"
-            style={{ fontSize: "2.5rem", color: project.color }}
+            style={{ fontSize: "2.4rem", color: project.color }}
           />
         </div>
 
-        <h3 style={{ fontSize: "1.5rem", fontWeight: "800", color: "#e2e8f0", lineHeight: "1.2" }}>
+        <h3
+          style={{
+            fontSize: "1.3rem",
+            fontWeight: "800",
+            color: "#e2e8f0",
+            lineHeight: "1.25",
+            letterSpacing: "-0.01em",
+            maxWidth: "240px",
+          }}
+        >
           {project.title}
         </h3>
 
-        <p style={{ fontSize: "0.85rem", color: "#94a3b8", fontWeight: "600" }}>
+        <p
+          style={{
+            fontSize: "0.85rem",
+            color: "#94a3b8",
+            fontWeight: "600",
+            letterSpacing: "0.2px",
+          }}
+        >
           Hover to view details
         </p>
       </div>
 
-      {}
       <div
         style={{
           position: "absolute",
@@ -115,8 +145,8 @@ function ProjectCard({ project }) {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "rgba(13, 27, 62, 0.97)",
-          padding: "1.5rem",
+          background: "rgba(13, 27, 62, 0.98)",
+          padding: "1.6rem 1.25rem 1.25rem",
           display: "flex",
           flexDirection: "column",
           transform: hovered ? "translateY(0)" : "translateY(100%)",
@@ -136,32 +166,71 @@ function ProjectCard({ project }) {
           }}
         />
 
-        <h3 style={{
-          fontSize: "1.2rem",
-          fontWeight: "800",
-          color: "#e2e8f0",
-          marginBottom: "0.5rem",
-          marginTop: "0.5rem",
-        }}>
+        <h3
+          style={{
+            fontSize: "1.2rem",
+            fontWeight: "800",
+            color: "#e2e8f0",
+            marginBottom: "0.6rem",
+            marginTop: "0.25rem",
+            flexShrink: 0,
+          }}
+        >
           {project.title}
         </h3>
 
-        <div style={{ flex: 1, overflowY: "auto", marginBottom: "1rem", paddingRight: "5px" }}>
-          <p style={{ fontSize: "0.85rem", color: "#94a3b8", lineHeight: "1.5" }}>
+        <div
+          style={{
+            flex: 1,
+            overflowY: "auto",
+            marginBottom: "0.85rem",
+            paddingRight: "4px",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "0.82rem",
+              color: "#94a3b8",
+              lineHeight: "1.55",
+            }}
+          >
             {project.description}
           </p>
         </div>
 
         <div style={{ marginBottom: "1rem", flexShrink: 0 }}>
-          <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase" }}>
+          <span
+            style={{
+              fontSize: "0.72rem",
+              fontWeight: "700",
+              color: "#64748b",
+              textTransform: "uppercase",
+              letterSpacing: "0.6px",
+            }}
+          >
             Tech Stack
           </span>
-          <p style={{ fontSize: "0.85rem", color: "#cbd5e1", fontWeight: "600", marginTop: "0.2rem" }}>
+          <p
+            style={{
+              fontSize: "0.8rem",
+              color: "#cbd5e1",
+              fontWeight: "600",
+              marginTop: "0.2rem",
+              lineHeight: "1.4",
+            }}
+          >
             {project.tools}
           </p>
         </div>
 
-        <div style={{ display: "flex", gap: "0.6rem", flexShrink: 0 }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "0.6rem",
+            flexShrink: 0,
+            marginTop: "auto",
+          }}
+        >
           {project.websiteUrl && (
             <a
               href={project.websiteUrl}
@@ -169,18 +238,24 @@ function ProjectCard({ project }) {
               rel="noopener noreferrer"
               style={{
                 flex: 1,
-                padding: "0.6rem",
-                borderRadius: "6px",
+                padding: "0.6rem 0.5rem",
+                borderRadius: "8px",
                 background: project.color,
                 color: "#0a0a1a",
                 textDecoration: "none",
                 fontWeight: "700",
                 fontSize: "0.8rem",
                 textAlign: "center",
-                transition: "opacity 0.3s",
+                transition: "opacity 0.3s, transform 0.2s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = "0.85"
+                e.currentTarget.style.transform = "translateY(-1px)"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = "1"
+                e.currentTarget.style.transform = "translateY(0)"
+              }}
             >
               Website
             </a>
@@ -192,11 +267,11 @@ function ProjectCard({ project }) {
             rel="noopener noreferrer"
             style={{
               flex: 1,
-              padding: "0.6rem",
-              borderRadius: "6px",
+              padding: "0.6rem 0.5rem",
+              borderRadius: "8px",
               background: "transparent",
               color: "#e2e8f0",
-              border: `2px solid rgba(255,255,255,0.2)`,
+              border: `2px solid rgba(255,255,255,0.25)`,
               textDecoration: "none",
               fontWeight: "700",
               fontSize: "0.8rem",
@@ -206,10 +281,12 @@ function ProjectCard({ project }) {
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "rgba(255,255,255,0.1)"
               e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)"
+              e.currentTarget.style.transform = "translateY(-1px)"
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent"
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"
+              e.currentTarget.style.transform = "translateY(0)"
             }}
           >
             Code
@@ -226,10 +303,9 @@ export function Projects() {
       id="work"
       style={{
         background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%)",
-        padding: "4rem 1rem",
-        minHeight: "100vh",
+        padding: "5rem 1rem 5.5rem 1rem",
         position: "relative",
-        overflow: "hidden",
+        overflowX: "clip",
       }}
     >
       <ScrollReveal>
@@ -255,25 +331,16 @@ export function Projects() {
         </h2>
       </ScrollReveal>
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2rem",
-          maxWidth: "1400px",
-          margin: "0 auto",
-        }}
-      >
+      <div className="projects-container">
         {projects.map((project, index) => (
-          <ScrollReveal key={project.title} delay={index * 150}>
+          <ScrollReveal key={project.title} delay={index * 150} className="project-reveal-wrapper">
             <ProjectCard project={project} />
           </ScrollReveal>
         ))}
       </div>
 
       <ScrollReveal delay={400}>
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "4rem" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "3.75rem" }}>
           <a
             href="https://github.com/AdityaKumar1988"
             target="_blank"
@@ -307,10 +374,80 @@ export function Projects() {
         </div>
       </ScrollReveal>
       <style jsx>{`
-        @media (max-width: 480px) {
-          .project-card {
-            width: 100% !important;
-            max-width: 320px !important;
+        .projects-container {
+          display: flex;
+          justify-content: center;
+          align-items: stretch;
+          gap: 1.25rem;
+          max-width: 1540px;
+          margin: 0 auto;
+          width: 100%;
+        }
+        :global(.project-reveal-wrapper) {
+          display: flex;
+          flex-direction: column;
+        }
+        :global(.project-card) {
+          width: 100%;
+          height: 480px;
+        }
+        @media (min-width: 1200px) {
+          .projects-container {
+            flex-wrap: nowrap;
+            gap: 1.25rem;
+            padding: 0 1.25rem;
+          }
+          :global(.project-reveal-wrapper) {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 290px;
+          }
+        }
+        @media (min-width: 1200px) and (max-width: 1340px) {
+          .projects-container {
+            gap: 0.85rem;
+            padding: 0 1rem;
+          }
+        }
+        @media (min-width: 901px) and (max-width: 1199px) {
+          .projects-container {
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 980px;
+            padding: 0 1.5rem;
+          }
+          :global(.project-reveal-wrapper) {
+            flex: 0 1 calc(33.333% - 1.1rem);
+            min-width: 270px;
+            max-width: 310px;
+          }
+        }
+        @media (min-width: 641px) and (max-width: 900px) {
+          .projects-container {
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 700px;
+            padding: 0 1.5rem;
+          }
+          :global(.project-reveal-wrapper) {
+            flex: 0 1 calc(50% - 0.85rem);
+            min-width: 280px;
+            max-width: 330px;
+          }
+        }
+        @media (max-width: 640px) {
+          .projects-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 1.75rem;
+            padding: 0 1rem;
+          }
+          :global(.project-reveal-wrapper) {
+            width: 100%;
+            max-width: 340px;
+          }
+          :global(.project-card) {
+            height: 480px;
           }
         }
       `}</style>

@@ -108,7 +108,6 @@ export function Education() {
           padding: "2rem 0",
         }}
       >
-        {}
         <div
           className="timeline-line"
           style={{
@@ -122,7 +121,6 @@ export function Education() {
           }}
         />
 
-        {}
         <div
           ref={lineRef}
           className="timeline-line"
@@ -139,7 +137,6 @@ export function Education() {
             willChange: "height",
           }}
         >
-          {}
           <div
             style={{
               position: "absolute",
@@ -157,7 +154,6 @@ export function Education() {
           />
         </div>
 
-        {}
         <div style={{ position: "relative", zIndex: 2 }}>
           {educationData.map((edu, index) => (
             <div key={index} className="timeline-item">
@@ -181,7 +177,6 @@ export function Education() {
                       position: "relative",
                     }}
                   >
-                    {}
                     <div style={{ marginBottom: "1rem" }}>
                       <h3 style={{ fontSize: "1.3rem", fontWeight: "800", color: "#e2e8f0", lineHeight: "1.2" }}>
                         {edu.institute}
@@ -203,7 +198,6 @@ export function Education() {
                       </p>
                     </div>
 
-                    {}
                     <div
                       style={{
                         display: "flex",
@@ -230,14 +224,12 @@ export function Education() {
                       </span>
                     </div>
 
-                    {}
                     <ul style={{ paddingLeft: "1.2rem", marginBottom: "1.2rem", color: "#94a3b8", fontSize: "0.95rem", lineHeight: "1.6" }}>
                       {edu.description.map((point, i) => (
                         <li key={i} style={{ marginBottom: "0.5rem" }}>{point}</li>
                       ))}
                     </ul>
 
-                    {}
                     {edu.skills.length > 0 && (
                       <div
                         style={{

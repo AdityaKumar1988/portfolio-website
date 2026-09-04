@@ -40,7 +40,6 @@ export function About() {
         overflow: "hidden",
       }}
     >
-      { }
       <div
         style={{
           position: "absolute",
@@ -90,7 +89,6 @@ export function About() {
           zIndex: 1,
         }}
       >
-        { }
         <ScrollReveal delay={200}>
           <div
             className="about-image"
@@ -117,7 +115,6 @@ export function About() {
                 borderRadius: "1rem",
               }}
             >
-              { }
               <div
                 style={{
                   position: "absolute",
@@ -130,7 +127,6 @@ export function About() {
                 }}
               />
 
-              { }
               <img
                 src="/images/adi.jpeg"
                 alt="Aditya Kumar Jha"
@@ -149,7 +145,6 @@ export function About() {
           </div>
         </ScrollReveal>
 
-        { }
         <ScrollReveal delay={400}>
           <div
             className="about-text"
@@ -201,7 +196,6 @@ export function About() {
               web technologies.
             </p>
 
-            { }
             <div
               style={{
                 display: "grid",
@@ -222,7 +216,6 @@ export function About() {
               </div>
             </div>
 
-            { }
             <div style={{ marginTop: "2rem" }}>
               <a
                 href="https://drive.google.com/file/d/1tJ3J6tg-sBxbisfrsU0zgPeVfMsyYYxi/view?usp=sharing"

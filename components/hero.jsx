@@ -295,7 +295,6 @@ export function Hero() {
           zIndex: 1,
         }}
       >
-        {}
         <div className="hero-text" style={{ flex: "1.2" }}>
           <h1
             style={{
@@ -410,7 +409,6 @@ export function Hero() {
           </div>
         </div>
 
-        {}
         <div className="hero-image" style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
           <div
             style={{
@@ -418,7 +416,6 @@ export function Hero() {
               display: "inline-block",
             }}
           >
-            {}
             <div
               style={{
                 position: "absolute",
@@ -430,7 +427,6 @@ export function Hero() {
                 animation: "spin 6s linear infinite",
               }}
             />
-            {}
             <img
               src="/images/adi1.png"
               alt="Aditya Kumar Jha Logo"

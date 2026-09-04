@@ -10,7 +10,6 @@ export function Footer() {
         minHeight: "auto",
       }}
     >
-      {}
       <div
         style={{
           width: "95%",
@@ -23,7 +22,6 @@ export function Footer() {
           marginBottom: "0.5rem",
         }}
       >
-        {}
         <div style={{ flex: 1, textAlign: "left", maxWidth: "600px" }}>
           <h3
             style={{
@@ -40,7 +38,7 @@ export function Footer() {
               fontSize: "0.8rem",
               color: "#94a3b8",
               lineHeight: 1.4,
-              fontFamily: "'Nunito', sans-serif",
+              fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
               margin: 0,
             }}
           >
@@ -49,7 +47,6 @@ export function Footer() {
           </p>
         </div>
 
-        {}
         <div
           style={{
             flex: 1,
@@ -70,19 +67,17 @@ export function Footer() {
             Contact Info
           </h3>
 
-          {}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem", justifyContent: "flex-end", alignItems: "center" }}>
-            <p style={{ color: "#94a3b8", fontSize: "0.8rem", fontFamily: "'Nunito', sans-serif", margin: 0, display: "flex", alignItems: "center", gap: "5px" }}>
+            <p style={{ color: "#94a3b8", fontSize: "0.8rem", fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif", margin: 0, display: "flex", alignItems: "center", gap: "5px" }}>
               +91-6207051988
               <i className="fas fa-phone" style={{ color: "#00e5ff", fontSize: "0.8rem" }} />
             </p>
-            <p style={{ color: "#94a3b8", fontSize: "0.8rem", fontFamily: "'Nunito', sans-serif", margin: 0, display: "flex", alignItems: "center", gap: "5px" }}>
+            <p style={{ color: "#94a3b8", fontSize: "0.8rem", fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif", margin: 0, display: "flex", alignItems: "center", gap: "5px" }}>
               adityakrjha1988@gmail.com
               <i className="fas fa-envelope" style={{ color: "#00e5ff", fontSize: "0.8rem" }} />
             </p>
           </div>
 
-          {}
           <div style={{ display: "flex", gap: "0.6rem", marginTop: "0.5rem", justifyContent: "flex-end" }}>
             {[
               { icon: "fab fa-github", url: "https://github.com/AdityaKumar1988" },
@@ -123,14 +118,13 @@ export function Footer() {
         </div>
       </div>
 
-      {}
       <div
         style={{
           borderTop: "1px solid rgba(255, 255, 255, 0.08)",
           paddingTop: "0.5rem",
           textAlign: "center",
           fontSize: "0.75rem",
-          fontFamily: "'Nunito', sans-serif",
+          fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
           color: "rgba(255,255,255,0.4)",
           width: "95%",
           margin: "0 auto",

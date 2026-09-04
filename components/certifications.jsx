@@ -34,6 +34,16 @@ const certifications = [
     topics: ["Generative AI", "Prompt Engineering", "Foundation Models"],
     color: "#9f55ff",
   },
+  {
+    id: 3,
+    organization: "IBM Career Education Program",
+    role: "Advanced Generative AI",
+    period: "July 2026",
+    description: "Completed IBM's Advanced Generative AI training program, covering advanced concepts and practical applications of generative AI.",
+    link: "https://drive.google.com/file/d/1Dg4oDFg8M5uBtl5eU99vl0fD37Pk7TWn/view?usp=sharing",
+    topics: ["Generative AI", "Prompt Engineering", "Large Language Models"],
+    color: "#0f62fe",
+  },
 ]
 
 export function Certifications() {
@@ -105,7 +115,6 @@ export function Certifications() {
         </h2>
       </ScrollReveal>
 
-      {}
       <div
         style={{
           display: "flex",
@@ -132,11 +141,9 @@ export function Certifications() {
               border: index === activeId ? `2px solid ${cert.color}` : "1px solid #ddd",
             }}
           >
-            {}
             <div style={{ height: "12px", background: cert.color }}></div>
 
             <div style={{ padding: isMobile ? "1.5rem" : "2.5rem 2rem" }}>
-              {}
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1.2rem" }}>
                 <i className="fas fa-certificate" style={{ color: cert.color, fontSize: isMobile ? "1.4rem" : "1.8rem" }} />
                 <h3 style={{ margin: 0, fontSize: isMobile ? "0.9rem" : "1.1rem", fontWeight: "bold", color: "#555", textTransform: "uppercase", letterSpacing: "1px" }}>
@@ -156,7 +163,6 @@ export function Certifications() {
                 {cert.description}
               </p>
 
-              {}
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: isMobile ? "1.5rem" : "2rem" }}>
                 {cert.topics.map((topic) => (
                   <span
@@ -175,7 +181,6 @@ export function Certifications() {
                 ))}
               </div>
 
-              {}
               <a
                 href={cert.link}
                 target="_blank"
@@ -202,7 +207,6 @@ export function Certifications() {
         ))}
       </div>
 
-      {}
       <div style={{ display: "flex", gap: "12px", marginTop: "1rem" }}>
         {certifications.map((_, index) => (
           <button
